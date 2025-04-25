@@ -1,0 +1,227 @@
+/* Estilos para los carruseles con embla */
+
+/* Embla Carousel - General */
+.embla {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .embla__container {
+    display: flex;
+  }
+
+  .embla__slide {
+    position: relative;
+    flex: 0 0 100%;
+  }
+
+  /* Embla Carousel - Dots */
+  .embla__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .embla__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    margin: 0 0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .embla__dot--selected {
+    background-color: #4CAF50;
+    transform: scale(1.2);
+  }
+
+  /* Embla Carousel - Buttons */
+  .embla__button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .embla__button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .embla__button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .embla__button--prev {
+    left: 1rem;
+  }
+
+  .embla__button--next {
+    right: 1rem;
+  }
+
+  .embla__button__svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Service Cards */
+  .service-card {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card-image {
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover .service-card-image {
+    transform: scale(1.1);
+  }
+
+  /* Gallery Items */
+  .grid-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .grid-gallery-item img {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .grid-gallery-item-hover {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    color: white;
+  }
+
+  .grid-gallery-item:hover .grid-gallery-item-hover {
+    opacity: 1;
+  }
+
+  /* Testimonials Section */
+  .testimonial-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .testimonial-quote {
+    font-size: 5rem;
+    height: 4rem;
+    color: #4CAF50;
+    opacity: 0.3;
+  }
+
+  /* Client Logos */
+  .client-logo {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .client-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* News Items */
+  .news-date {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    display: inline-block;
+    text-align: center;
+  }
+
+  /* Forms */
+  .quote-form input,
+  .quote-form textarea,
+  .quote-form select {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+  }
+
+  .quote-form input::placeholder,
+  .quote-form textarea::placeholder,
+  .quote-form select::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .quote-form input:focus,
+  .quote-form textarea:focus,
+  .quote-form select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-in-out;
+  }
+
+  /* Media Queries */
+  @media (max-width: 640px) {
+    .embla__button {
+      width: 30px;
+      height: 30px;
+    }
+
+    .embla__button__svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
