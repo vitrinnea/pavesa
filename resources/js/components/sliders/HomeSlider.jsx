@@ -41,10 +41,10 @@ const HomeSlider = ({ dataSlider }) => {
                             <div className="absolute left-0 w-full z-10 top-1/2 transform -translate-y-1/2">
                                 <div className="container mx-auto px-6 lg:px-10">
                                     <div className="max-w-2xl">
-                                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-none font-milligrambold ">
                                             CONSTRUYENDO
                                             <br />
-                                            <span className="text-white">
+                                            <span className="text-white font-integralcfheavy">
                                                 EL FUTURO
                                             </span>
                                         </h1>
@@ -52,13 +52,13 @@ const HomeSlider = ({ dataSlider }) => {
                                             to="/nosotros"
                                             className="inline-block bg-[#11312C] text-white font-medium px-8 py-3 rounded-full hover:bg-primary-600 transition-colors"
                                         >
-                                            <span className="mr-2">
-                                                CONOCE MÁS
+                                            <span className="mr-2 font-integralcfheavy">
+                                                CONOCE MAS
                                             </span>
                                             <span className="inline-block bg-[#2C9C47] rounded-full p-1">
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
-                                                    className="h-5 w-5 inline text-[#11312C]"
+                                                    className="h-6 w-10 inline text-[#11312C] text-2xl"
                                                     viewBox="0 0 20 20"
                                                     fill="currentColor"
                                                 >
@@ -86,7 +86,7 @@ const HomeSlider = ({ dataSlider }) => {
                                     key={index}
                                     onClick={() => onDotButtonClick(index)}
                                     className={`
-                                        flex items-center px-4 py-2 transition-all duration-200
+                                        flex items-center px-10 py-5 transition-all duration-200
                                         ${isActive
                                             ? 'bg-[#2C9C47] shadow-lg'
                                             : 'bg-[#11312C] opacity-80 hover:opacity-100'}
@@ -100,10 +100,10 @@ const HomeSlider = ({ dataSlider }) => {
                                                 : `/storage/${item.image}`
                                         }
                                         alt={item.title || "Slide imagen"}
-                                        className=" h-10 object-cover rounded-full w-20"
+                                        className="h-8 object-cover rounded-full w-20"
                                     />
                                     <span className={`
-                                        ml-4 text-base font-bold
+                                        ml-4 tracking-wide text-base font-bold
                                         ${isActive ? 'text-white' : 'text-white'}
                                         text-left
                                     `}>
