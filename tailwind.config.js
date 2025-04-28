@@ -13,8 +13,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                lafargebook: ['LaFarge-Book', 'sans-serif'],
-                manropebold: ['Manrope-Bold', 'sans-serif'], // Añade la nueva fuente aquí
+                milligrambold: ['Milligram-Bold', 'sans-serif'],
+                milligramregular: ['Milligram-Regular', 'sans-serif'],
+                integralcfheavy: ['Integral-CF-Heavy', 'sans-serif'],
             },
         },
     },

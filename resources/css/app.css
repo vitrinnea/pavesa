@@ -1,11 +1,34 @@
+@font-face {
+    font-family: 'Milligram-Regular';
+    src: url('/fonts/milligram/Milligram-Regular-trial.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Milligram-Bold';
+    src: url('/fonts/milligram/Milligram-Bold-trial.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Milligram-Extrabold';
+    src: url('/fonts/milligram/Milligram-Extrabold-trial.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Integral-CF-Heavy';
+    src: url('/fonts/integral-cf/Fontspring-DEMO-integralcf-heavy.otf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
 nav#menu a {
-    font-family: 'Manrope-Bold';
+    font-family: 'Milligram-Bold';
 }
 
 *, ::before, ::after {
-    font-family: 'LaFarge-Book';
+    font-family: 'Milligram-Regular';
 }
-
 
 
 /* filepath: /resources/css/global.css */
