@@ -8,6 +8,7 @@ import QuoteForm from "../forms/QuoteForm";
 import ServicesBanner from "../components/ServicesBanner";
 import Services from "../components/Services";
 
+ 
 const Homepage = () => {
     const [settings] = useOutletContext();
     const [sliders, setSliders] = useState([]);
@@ -15,6 +16,24 @@ const Homepage = () => {
     const [projects, setProjects] = useState([]);
     const [testimonials, setTestimonials] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const imagesSliderProjects = [
+        {
+            src: "/images/home/proyecto1.png",
+            title: "Briko, Nuevo Cuscatlán",
+            description: "Obra Gris"
+        },
+        {
+            src: "/images/home/proyecto2.png",
+            title: "ByPass, Usulután",
+            description: "Suministro y colocación de mezcla asfáltica"
+        },
+        {
+            src: "/images/home/proyecto3.png",
+            title: "Carretera a Comalapa",
+            description: "Lanzado de concreto (Shotcrete)"
+        }
+    ];
 
     useEffect(() => {
         const fetchHomeData = async () => {
@@ -212,7 +231,6 @@ const Homepage = () => {
                     <h2 className="section-title mb-12 font-integralcfheavy text-5xl text-[#11312C]">
                         PROYECTOS
                     </h2>
-                    <div className="h-[497px]"></div>
                 </div>
             </section>
             <section className="border-y border-y-[#F16623] border-solid py-8">

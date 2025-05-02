@@ -6,7 +6,10 @@ import Layout from './components/Layout';
 // Importar los estilos CSS
 import '../css/app.css';
 import '../css/additional.css';
-import '../css/additional-service-banner.css'; // Nu
+import '../css/additional-service-banner.css';
+import ConcretoPage from './pages/ConcretoPage';
+import AsfaltoPage from './pages/AsfaltoPage';
+import TerraceriaPage from './pages/TerraceriaPage';
 
 const App = () => {
     return (
@@ -14,6 +17,15 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Homepage />} />
+                </Route>
+                <Route path="/concreto" element={<Layout />}>
+                    <Route index element={<ConcretoPage />} />
+                </Route>
+                <Route path="/asfalto" element={<Layout />}>
+                    <Route index element={<AsfaltoPage />} />
+                </Route>
+                <Route path="/terraceria" element={<Layout />}>
+                    <Route index element={<TerraceriaPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -41,7 +41,7 @@ const HomeSlider = ({ dataSlider }) => {
                             <div className="absolute left-0 w-full z-10 top-1/2 transform -translate-y-1/2">
                                 <div className="container mx-auto px-6 lg:px-10">
                                     <div className="max-w-2xl">
-                                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-none font-milligrambold ">
+                                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-none font-milligrambold">
                                             CONSTRUYENDO
                                             <br />
                                             <span className="text-white font-integralcfheavy">
