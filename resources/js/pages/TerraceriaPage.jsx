@@ -35,61 +35,62 @@ const TerraceriaPage = () => {
             {/* Hero Slider */}
             {sliders && sliders.length > 0 && (
                 <section className="relative">
-                    {/* Slider principal a pantalla completa */}
-                    <div className="h-screen relative">
+                    <div className="h-[70vh] md:h-screen relative"> {/* Altura adaptada */}
                         <HomeSlider dataSlider={sliders} />
                     </div>
                 </section>
             )}
+
             <section>
                 <div className="container-custom bg-[url(/images/terraceria/bg-terraceria.png)] bg-bottom bg-cover bg-no-repeat">
-                    <div className="grid grid-cols-12 py-10 items-center">
-                        <div className="col-span-6">
-                            <img src="/images/terraceria/terraceria-pavesa.png" className="max-w-xl max-h-[700px]" alt="" />
+                    <div className="grid grid-cols-1 md:grid-cols-12 py-10 items-center gap-8 px-4 md:px-0"> {/* responsive grid y padding */}
+                        <div className="md:col-span-6 flex justify-center">
+                            <img
+                                src="/images/terraceria/terraceria-pavesa.png"
+                                className="w-full max-w-md md:max-w-xl max-h-[500px] md:max-h-[700px]"
+                                alt=""
+                            />
                         </div>
-                        <div className="col-span-6 px-10 max-w-xl">
-                            <h2 className="font-milligramregular text-4xl text-white">
+                        <div className="md:col-span-6 px-4 md:px-10 max-w-xl mx-auto text-center md:text-left">
+                            <h2 className="font-milligramregular text-2xl md:text-4xl text-white mb-4">
                                 Lorem ipsum dolor sit amet
                             </h2>
-                            <p className="text-white text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p className="text-white text-base md:text-xl">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <div className="container mx-auto">
-                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-5xl text-[#11312C]">
-                        Algunas de <br/>nuestras soluciones
+                <div className="container mx-auto px-4">
+                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-3xl md:text-5xl text-[#11312C]">
+                        Algunas de <br className="hidden md:block" /> nuestras soluciones
                     </h2>
-                    <div className="grid grid-cols-4">
-                        <div className="px-5 pt-5 pb-16">
-                            <div className="flex items-center justify-center mb-4">
-                                <img src="/images/terraceria/terraceria-1.png" className="max-w-full mx-auto" alt="" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"> {/* responsive grid */}
+                        {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="px-5 pt-5 pb-16">
+                                <div className="flex items-center justify-center mb-4">
+                                    <img
+                                        src={`/images/terraceria/terraceria-${i}.png`}
+                                        className="max-w-full mx-auto"
+                                        alt=""
+                                    />
+                                </div>
+                                <h3 className="text-[#11312C] text-xl md:text-2xl font-milligrambold mb-2 text-center">
+                                    {
+                                        i === 1 ? "Movimientos masivos de tierra" :
+                                        i === 2 ? "Diseños de terrazas" :
+                                        i === 3 ? "Cortes y rellenos estructurales" :
+                                        <>
+                                            Terraplenes <br />
+                                            <span className="font-milligramregular text-base md:text-xl">(acarreo de tierra para relleno)</span>
+                                        </>
+                                    }
+                                </h3>
                             </div>
-                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">Movimientos <br/>masivos de tierra</h3>
-                        </div>
-                        <div className="px-5 pt-5 pb-16">
-                            <div className="flex items-center justify-center mb-4">
-                                <img src="/images/terraceria/terraceria-2.png" className="max-w-full mx-auto" alt="" />
-                            </div>
-                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">Diseños de <br/>terrazas</h3>
-                        </div>
-                        <div className="px-5 pt-5 pb-16">
-                            <div className="flex items-center justify-center mb-4">
-                                <img src="/images/terraceria/terraceria-3.png" className="max-w-full mx-auto" alt="" />
-                            </div>
-                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">Cortes y rellenos <br/>estructurales</h3>
-                        </div>
-                        <div className="px-5 pt-5 pb-16">
-                            <div className="flex items-center justify-center mb-4">
-                                <img src="/images/terraceria/terraceria-4.png" className="max-w-full mx-auto" alt="" />
-                            </div>
-                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">
-                                Terraplenes
-                                <br/><span className="font-milligramregular text-xl">(acarreo de tierra para relleno)</span>
-                            </h3>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>

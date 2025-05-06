@@ -2,24 +2,24 @@ import React from "react";
 
 const Footer = ({ settings }) => {
     return (
-        <footer className="bg-[#11312C] py-20 border-b-[20px] border-solid border-b-[#2C9C47]">
-            <div className="container mx-auto text-white">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-white">
-                    <div>
-                        <h2 className="text-white text-2xl font-milligrambold mb-5">
+        <footer className="bg-[#11312C] py-10 md:py-20 border-b-[20px] border-b-[#2C9C47] mt-20">
+            <div className="container mx-auto text-white px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <div className="text-center md:text-left">
+                        <h2 className="text-2xl font-milligrambold mb-5">
+
                             Quiénes somos
                         </h2>
-                        <p className="text-white font-milligramregular">
+                        <p className="font-milligramregular">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
+                            elit...
                         </p>
                     </div>
                     <div className="text-center">
-                        <h2 className="text-white text-2xl font-milligrambold mb-5">
+                        <h2 className="text-2xl font-milligrambold mb-5">
                             Nuestras soluciones
                         </h2>
-                        <ul className="space-y-2 text-white">
+                        <ul className="space-y-2">
                             <li>
                                 <a href="/asfalto" className="footer-link">
                                     Asfalto
@@ -42,124 +42,30 @@ const Footer = ({ settings }) => {
                             </li>
                         </ul>
                     </div>
-                    <div>
-                        <h2 className="text-white text-2xl font-milligrambold mb-5">
+                    <div className="text-center md:text-left">
+                        <h2 className="text-2xl font-milligrambold mb-5">
                             Contáctanos
                         </h2>
                         <a
                             href="mailto:ventas@grupopavesa.com"
-                            className="text-white block mb-2"
+                            className="block mb-2"
                         >
                             ventas@grupopavesa.com
                         </a>
-                        <a
-                            href="mailto:+50379511502"
-                            className="text-white block font-sans mb-2"
-                        >
+                        <a href="tel:+50379511502" className="block mb-2">
                             +503 7951 1502
                         </a>
-                        <div className="flex gap-3 items-center">
-                            <a href="#">
-                                <svg
-                                    width="19"
-                                    height="19"
-                                    viewBox="0 0 19 19"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    {" "}
-                                    <path
-                                        d="M6.13339 6.25573H9.68801V8.09612C9.68801 8.09612 10.8939 5.46169 14.545 5.99971C18.1961 6.53773 18.4521 9.0497 18.4521 12.1591V18.4149H14.7379V12.0329C14.7379 9.39849 12.6267 9.3317 12.0145 9.3317C11.4022 9.3317 9.79561 9.92908 9.79561 11.7064V18.4149H6.13339V6.25202V6.25573Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M3.99614 6.22607H0.337616V18.4186H3.99614V6.22607Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M2.16691 4.33382C3.36366 4.33382 4.33381 3.36366 4.33381 2.16691C4.33381 0.97016 3.36366 0 2.16691 0C0.970157 0 0 0.97016 0 2.16691C0 3.36366 0.970157 4.33382 2.16691 4.33382Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg
-                                    width="10"
-                                    height="19"
-                                    viewBox="0 0 10 19"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    {" "}
-                                    <path
-                                        d="M10 3.72064V0.755859H7.02679C4.39931 0.755859 2.95592 2.24718 2.95592 5.24767C2.95592 8.24817 2.95592 7.76892 2.95592 7.76892H0V11.1594H3.07404V18.7559H6.49381V11.0343H9.10401L9.46414 7.62604H6.66379V5.35781C6.66379 3.49441 7.79026 3.72064 9.99712 3.72064H10Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg
-                                    width="19"
-                                    height="19"
-                                    viewBox="0 0 19 19"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    {" "}
-                                    <path
-                                        d="M9.5439 4.71826C6.81864 4.71826 4.60663 6.92666 4.60663 9.65192C4.60663 12.3772 6.81864 14.5892 9.5439 14.5892C12.2692 14.5892 14.4776 12.3772 14.4776 9.65192C14.4776 6.92666 12.2692 4.71826 9.5439 4.71826ZM9.5439 12.7495C7.83429 12.7495 6.44636 11.3615 6.44636 9.65192C6.44636 7.94231 7.83429 6.55799 9.5439 6.55799C11.2535 6.55799 12.6378 7.94592 12.6378 9.65192C12.6378 11.3579 11.2499 12.7495 9.5439 12.7495Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M15.6829 4.80753C15.7302 4.14249 15.2294 3.565 14.5644 3.51768C13.8993 3.47036 13.3218 3.97112 13.2745 4.63617C13.2272 5.30121 13.728 5.87869 14.393 5.92601C15.0581 5.97333 15.6355 5.47257 15.6829 4.80753Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M14.3619 0.536621H4.88495C2.4886 0.536621 0.547668 2.47755 0.547668 4.8739V14.3545C0.547668 16.7472 2.4886 18.6918 4.88495 18.6918H14.3655C16.7619 18.6918 18.7028 16.7508 18.7028 14.3545V4.8739C18.7028 2.47755 16.7619 0.536621 14.3655 0.536621H14.3619ZM17.1884 13.4039C17.1884 15.4894 15.4968 17.1773 13.4149 17.1773H5.83192C3.74641 17.1773 2.05849 15.4858 2.05849 13.4039V5.82449C2.05849 3.73898 3.74641 2.05106 5.83192 2.05106H13.4113C15.4968 2.05106 17.1848 3.7426 17.1848 5.82449V13.4039H17.1884Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M9.5439 4.71826C6.81864 4.71826 4.60663 6.92666 4.60663 9.65192C4.60663 12.3772 6.81864 14.5892 9.5439 14.5892C12.2692 14.5892 14.4776 12.3772 14.4776 9.65192C14.4776 6.92666 12.2692 4.71826 9.5439 4.71826ZM9.5439 12.7495C7.83429 12.7495 6.44636 11.3615 6.44636 9.65192C6.44636 7.94231 7.83429 6.55799 9.5439 6.55799C11.2535 6.55799 12.6378 7.94592 12.6378 9.65192C12.6378 11.3579 11.2499 12.7495 9.5439 12.7495Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M15.6829 4.80753C15.7302 4.14249 15.2294 3.565 14.5644 3.51768C13.8993 3.47036 13.3218 3.97112 13.2745 4.63617C13.2272 5.30121 13.728 5.87869 14.393 5.92601C15.0581 5.97333 15.6355 5.47257 15.6829 4.80753Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M9.5439 4.71826C6.81864 4.71826 4.60663 6.92666 4.60663 9.65192C4.60663 12.3772 6.81864 14.5892 9.5439 14.5892C12.2692 14.5892 14.4776 12.3772 14.4776 9.65192C14.4776 6.92666 12.2692 4.71826 9.5439 4.71826ZM9.5439 12.7495C7.83429 12.7495 6.44636 11.3615 6.44636 9.65192C6.44636 7.94231 7.83429 6.55799 9.5439 6.55799C11.2535 6.55799 12.6378 7.94592 12.6378 9.65192C12.6378 11.3579 11.2499 12.7495 9.5439 12.7495Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                    <path
-                                        d="M15.6829 4.80753C15.7302 4.14249 15.2294 3.565 14.5644 3.51768C13.8993 3.47036 13.3218 3.97112 13.2745 4.63617C13.2272 5.30121 13.728 5.87869 14.393 5.92601C15.0581 5.97333 15.6355 5.47257 15.6829 4.80753Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg
-                                    width="23"
-                                    height="17"
-                                    viewBox="0 0 23 17"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    {" "}
-                                    <path
-                                        d="M22.7117 3.98093C22.4381 2.26341 21.5246 1.15897 19.2915 1.00679C17.0584 0.8546 16.0389 0.850251 16.0389 0.850251C12.0979 0.611102 5.68111 0.889385 3.80108 0.993741C0.645626 1.36334 0.367593 2.79388 0.155758 5.15494C-0.0560766 7.516 -0.0295973 10.4032 0.102799 12.1642C0.341113 15.7862 1.59447 16.2863 4.01733 16.508C6.44018 16.7298 10.3591 16.7559 13.0468 16.7559C15.7344 16.7559 18.6427 16.5471 19.7328 16.4167C22.4249 15.9297 22.5837 14.647 22.875 12.1642C23.1663 9.68573 22.8794 5.07667 22.7117 3.98093ZM9.20727 12.1859V5.39844L15.0062 8.75522L9.20727 12.1859Z"
-                                        fill="#2C9C47"
-                                    />{" "}
-                                </svg>
-                            </a>
+                        <div className="flex justify-center md:justify-start gap-3 mt-4 flex-wrap">
+                            {/* Íconos */}
                         </div>
                     </div>
-                    <div>
+                    <div className="text-center md:text-left">
                         <div className="mb-6">
                             {settings.site_logo ? (
                                 <img
                                     src={`/storage/${settings.site_logo}`}
-                                    alt={settings.site_name || "Logo Pavisa"}
-                                    className="max-w-full"
+                                    alt={settings.site_name || "Logo"}
+                                    className="max-w-[150px] mx-auto md:mx-0"
                                 />
                             ) : (
                                 <span className="text-xl font-bold">
@@ -167,9 +73,21 @@ const Footer = ({ settings }) => {
                                 </span>
                             )}
                         </div>
-                        <button className="bg-[#2C9C47] py-4 px-6 rounded-full items-center flex mt-8 text-white transition-all duration-300 transform hover:scale-105 hover:bg-[rgba(44,156,71,0.9)]">
-                            <span className="inline-block font-milligrambold uppercase leading-none">COTIZA CON <br />NOSOTROS</span>
-                            <svg width="42" height="27" className="inline-block ml-2" viewBox="0 0 42 27" fill="none" xmlns="http://www.w3.org/2000/svg" > <rect x="0.0341797" y="0.914551" width="41.0684" height="25.1709" rx="12.5855" fill="#F0E92B" /> <g clip-path="url(#clip0_6173_3)"> <path d="M27.8026 14.4311C27.6465 14.4311 27.4875 14.4311 27.3313 14.4311C21.2604 14.4311 17.9022 14.4311 11.8313 14.4336C11.6553 14.4336 11.4792 14.4412 11.3032 14.4235C10.758 14.3702 10.3832 13.9744 10.3917 13.4797C10.4002 13.0053 10.7778 12.6298 11.3088 12.5816C11.482 12.5664 11.6609 12.5714 11.837 12.5714C17.8908 12.5714 21.2377 12.574 27.2915 12.5714C27.4619 12.5714 27.6379 12.6095 27.9389 12.475C27.3767 12.0108 26.8457 11.5896 26.3375 11.1431C25.1051 10.0598 23.8841 8.9638 22.6603 7.87288C22.2173 7.47711 22.1918 6.86315 22.5978 6.49021C23.0124 6.10965 23.6967 6.11219 24.1794 6.53334C25.1335 7.36548 26.0705 8.21538 27.0133 9.05767C28.3421 10.2425 29.671 11.4273 30.9942 12.6146C31.7098 13.2564 31.7041 13.7486 30.98 14.3956C28.7823 16.3592 26.5873 18.3254 24.3896 20.2865C24.2646 20.3982 24.1425 20.5149 23.9977 20.6011C23.5263 20.8878 22.9017 20.8269 22.5581 20.4667C22.1946 20.0886 22.2287 19.5305 22.6518 19.1525C24.276 17.6962 25.9059 16.2425 27.5357 14.7913C27.6379 14.7 27.7742 14.6417 27.8963 14.5655C27.8651 14.5173 27.8339 14.4717 27.8026 14.4235V14.4311Z" fill="#2C9C47" /> </g> <defs> <clipPath id="clip0_6173_3"> <rect width="23.8462" height="14.5726" fill="white" transform="translate(9.30762 6.21362)" /> </clipPath> </defs> </svg>
+                        <button className="bg-[#2C9C47] py-4 px-6 rounded-full flex items-center justify-center mx-auto md:mx-0 text-white transition-all hover:scale-105 hover:bg-[rgba(44,156,71,0.9)] w-full sm:w-auto">
+                            <span className="font-milligrambold uppercase text-sm leading-none text-center">
+                                COTIZA CON
+                                <br />
+                                NOSOTROS
+                            </span>
+                            <svg
+                                className="ml-2"
+                                width="42"
+                                height="27"
+                                viewBox="0 0 42 27"
+                                fill="none"
+                            >
+                                ...
+                            </svg>
                         </button>
                     </div>
                 </div>

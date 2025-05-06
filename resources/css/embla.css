@@ -1,5 +1,4 @@
-
-  .embla__viewport {
+.embla__viewport {
     overflow: hidden;
   }
 
@@ -329,3 +328,182 @@
   .is-snapped h5 {
     color: #000000 !important;
   }
+
+
+  /* Agrega estos estilos si son necesarios en tu archivo CSS de componentes */
+.proyectos-carousel .embla__button--prev,
+.proyectos-carousel .embla__button--next {
+  background-color: #119D58; /* Color verde de los botones en la imagen */
+  width: 48px;
+  height: 48px;
+  color: white;
+}
+
+.proyectos-carousel .embla__button__svg {
+  color: white;
+}
+
+/* Ajustes específicos para este carrusel */
+.proyectos-carousel .embla_event__slide {
+  margin-right: 30px; /* Espacio entre slides como se ve en la imagen */
+}
+
+/* Botones de navegación del slider de proyectos */
+.proyectos-carousel .embla__button--prev,
+.proyectos-carousel .embla__button--next {
+  background-color: #119D58 !important;
+  color: #fff !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+.proyectos-carousel .embla__button__svg {
+  color: #fff !important;
+}
+.proyectos-carousel .embla_event__slide {
+  margin-right: 30px;
+}
+
+
+
+.embla_project {
+    max-width: 70rem;
+    margin: auto;
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
+    --slide-spacing-sm: 1.6rem;
+    --slide-size-sm: 50%;
+    --slide-spacing-lg: 2rem;
+    --slide-size-lg: calc(100% / 3);
+  }
+  .embla_project__viewport {
+    overflow: hidden;
+  }
+  .embla_project__container {
+    backface-visibility: hidden;
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+  @media (min-width: 750px) {
+    .embla_project__container {
+      margin-left: calc(var(--slide-spacing-sm) * -1);
+    }
+  }
+  @media (min-width: 1200px) {
+    .embla_project__container {
+      margin-left: calc(var(--slide-spacing-lg) * -1);
+    }
+  }
+  .embla_project__slide {
+    min-width: 0;
+    flex: 0 0 var(--slide-size);
+    padding-left: var(--slide-spacing);
+  }
+  @media (min-width: 750px) {
+    .embla_project__slide {
+      flex: 0 0 var(--slide-size-sm);
+      padding-left: var(--slide-spacing-sm);
+    }
+  }
+  @media (min-width: 1200px) {
+    .embla_project__slide {
+      flex: 0 0 var(--slide-size-lg);
+      padding-left: var(--slide-spacing-lg);
+    }
+  }
+  .embla_project__slide__number {
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    border-radius: 1.8rem;
+    font-size: 4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--slide-height);
+    user-select: none;
+  }
+  .embla_project__controls {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+  }
+  .embla_project__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .embla_project__button {
+    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    width: 3.6rem;
+    height: 3.6rem;
+    z-index: 1;
+    border-radius: 50%;
+    color: var(--text-body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .embla_project__button:disabled {
+    color: var(--detail-high-contrast);
+  }
+  .embla_project__button__svg {
+    width: 35%;
+    height: 35%;
+  }
+  .embla_project__dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+  }
+  .embla_project__dot {
+    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .embla_project__dot:after {
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    content: '';
+  }
+  .embla_project__dot--selected:after {
+    box-shadow: inset 0 0 0 0.2rem var(--text-body);
+  }
+
