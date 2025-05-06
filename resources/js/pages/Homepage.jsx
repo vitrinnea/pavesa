@@ -285,7 +285,7 @@ const Homepage = () => {
                     </div>
                 </div>
             </section>
-            <section>
+            <section className="pb-32">
                 <div className="container mx-auto">
                     <h2 className="text-center text-5xl text-[#11312C] font-integralcfheavy mb-8">Noticias y mas</h2>
                     <div className="grid grid-cols-3 items-center gap-4">

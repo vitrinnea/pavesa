@@ -10,6 +10,8 @@ import '../css/additional-service-banner.css';
 import ConcretoPage from './pages/ConcretoPage';
 import AsfaltoPage from './pages/AsfaltoPage';
 import TerraceriaPage from './pages/TerraceriaPage';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
 
 const App = () => {
     return (
@@ -26,6 +28,12 @@ const App = () => {
                 </Route>
                 <Route path="/terraceria" element={<Layout />}>
                     <Route index element={<TerraceriaPage />} />
+                </Route>
+                <Route path="/blog" element={<Layout />}>
+                    <Route index element={<BlogPage />} />
+                </Route>
+                <Route path="/contactenos" element={<Layout />}>
+                    <Route index element={<ContactPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
