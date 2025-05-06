@@ -94,6 +94,41 @@ const TerraceriaPage = () => {
                     </div>
                 </div>
             </section>
+            <section className="pt-28">
+                <div className="container mx-auto bg-[url(/images/terraceria/bg-terraceria-2.png)] bg-cover bg-no-repeat">
+                    <div className="grid grid-cols-2">
+                        <div className="mt-[-50px]">
+                            <h2 className="text-[#2C9C47] text-4xl font-integralcfheavy mb-2 text-center">
+                                ALCANCE DE<br/>
+                                <span className="text-[#11312C] text-6xl font-integralcfheavy">NUESTROS <br/>SERVICIOS</span>
+                            </h2>
+                        </div>
+                        <div className="mt-[-70px]">
+                            <img src="/images/terraceria/terraceria-servicios.png" className="max-w-full mx-auto" alt="" />
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-3 py-24">
+                        <div className="px-5 pt-5 pb-16">
+                            <div className="flex items-center justify-center h-[135px] mb-5">
+                            <img src="/images/terraceria/esa-terraceria.png" className="max-w-full mx-auto" alt="" />
+                            </div>
+                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">Cobertura a <br/>nivel nacional</h3>
+                        </div>
+                        <div className="px-5 pt-5 pb-16 border-x border-x-[#F16623] border-solid">
+                            <div className="flex items-center justify-center h-[135px] mb-5">
+                            <img src="/images/terraceria/excavadora-terraceria.png" className="max-w-full mx-auto" alt="" />
+                            </div>
+                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">Equipos <br/>modernos</h3>
+                        </div>
+                        <div className="px-5 pt-5 pb-16">
+                            <div className="flex items-center justify-center h-[135px] mb-5">
+                            <img src="/images/terraceria/engranaje-terraceria.png" className="max-w-full mx-auto" alt="" />
+                            </div>
+                            <h3 className="text-[#11312C] text-2xl font-milligrambold mb-2 text-center">Asesoría <br/>técnica</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

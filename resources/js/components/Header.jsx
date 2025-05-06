@@ -96,7 +96,7 @@ const Header = ({ settings }) => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/contacto"
+                                <NavLink to="/contactenos"
                                     className={({isActive}) =>
                                         `px-4 py-2 font-medium uppercase text-sm ${isActive ? 'text-primary font-semibold' : 'text-white hover:text-primary'}`
                                     }
