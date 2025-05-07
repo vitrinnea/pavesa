@@ -33,16 +33,6 @@ const ProjectsSlider = ({ proyectos }) => {
 
     return (
         <div className="proyectos-carousel">
-            <h1
-                className="text-[48px] font-black tracking-tight mb-8"
-                style={{
-                    color: "#0F433D",
-                    fontFamily: "Montserrat, sans-serif",
-                    letterSpacing: "-2px",
-                }}
-            >
-                PROYECTOS
-            </h1>
             <div className="flex items-start relative">
                 {/* Botones a la izquierda - Ajustando z-index y posición */}
                 <div className="flex flex-col gap-2 mt-[60px] relative z-20 mr-8">
@@ -90,16 +80,14 @@ const ProjectsSlider = ({ proyectos }) => {
                                             />
                                             <div className="mt-4">
                                                 <h3
-                                                    className="font-black text-[22px] leading-tight mb-1"
+                                                    className="font-black font-milligrambold text-[22px] leading-tight mb-1"
                                                     style={{
                                                         color: "#0F433D",
-                                                        fontFamily:
-                                                            "Montserrat, sans-serif",
                                                     }}
                                                 >
                                                     {proyecto.titulo}
                                                 </h3>
-                                                <p className="text-[#222] font-medium text-[16px]">
+                                                <p className="text-[#222] font-medium font-milligramregular text-[16px]">
                                                     {proyecto.descripcion}
                                                 </p>
                                             </div>

@@ -56,7 +56,7 @@ const Header = ({ settings }) => {
                                         `px-4 py-2 font-medium uppercase text-sm ${isActive ? 'text-primary font-semibold' : 'text-white hover:text-primary'}`
                                     }
                                 >
-                                    Home
+                                    Inicio
                                 </NavLink>
                             </li>
                             <li>
