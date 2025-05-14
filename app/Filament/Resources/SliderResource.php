@@ -33,7 +33,7 @@ class SliderResource extends Resource
                 Forms\Components\TextInput::make('button_text')
                     ->label('Texto del botón')
                     ->maxLength(50),
-                Forms\Components\TextInput::make('button_link')
+                Forms\Components\TextInput::make('button_url')
                     ->label('Enlace del botón')
                     ->url()
                     ->maxLength(255),
