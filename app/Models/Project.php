@@ -11,37 +11,12 @@ class Project extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
+    protected $table = 'projects';
+
     protected $fillable = [
         'title',
-        'subtitle',
         'description',
-        'location',
-        'slug',
-        'is_featured',
-        'is_active',
+        'image',
     ];
 
-    protected $casts = [
-        'is_featured' => 'boolean',
-        'is_active' => 'boolean',
-    ];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($project) {
-            if (empty($project->slug)) {
-                $project->slug = Str::slug($project->title);
-            }
-        });
-    }
-
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('featured')
-            ->singleFile();
-
-        $this->addMediaCollection('gallery');
-    }
 }
