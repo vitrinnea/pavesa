@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class HomePage extends Model
 {
-    protected $table = 'home_page';
+    protected $table = 'home_pages';
     protected $fillable = [
         'title_seo',
         'description_seo',
@@ -52,6 +54,18 @@ class HomePage extends Model
         'customer_title_general',
         'customer_images_gallery',
 
+        //certification
+        'certification_title_general',
+        'certification_description_general',
+        'certification_link_general',
+        'certification_image_general',
+        ////////////////////////////////
+        'certification_image_01',
+        'certification_title_01',
+        'certification_description_01',
+        'certification_image_02',
+        'certification_title_02',
+        'certification_description_02',
     ];
 
     public $timestamps = true;
@@ -63,5 +77,10 @@ class HomePage extends Model
         'customer_images_gallery' => 'array',
     ];
 
-    // Define any relationships or additional methods here
+    public function serviceImage01() :Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => config('app.url') . "/storage/" .$this->attributes['service_image_01'] ?? null,
+        );
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\HomePage;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\News;
@@ -28,7 +29,8 @@ class HomeController extends Controller
                     'order' => $slider->order,
                 ];
             });
-
+        // Fetch the latest 3 news items
+        $homePage = HomePage::first();
 
         $news = News::where('is_active', true)
             ->latest('published_at')
@@ -48,6 +50,7 @@ class HomeController extends Controller
 
         return response()->json([
             'sliders' => $sliders,
+            'homePage' => $homePage,
             'news' => $news,
         ]);
     }
