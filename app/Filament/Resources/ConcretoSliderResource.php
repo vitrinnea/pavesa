@@ -1,9 +1,9 @@
 <?php
-// app/Filament/Resources/SliderResource.php
+
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SliderResource\Pages;
-use App\Models\Slider;
+use App\Filament\Resources\ConcretoSliderResource\Pages;
+use App\Models\SliderConcreto;
 use Filament\Forms;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
@@ -13,13 +13,15 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class SliderResource extends Resource
+class ConcretoSliderResource extends Resource
 {
-    protected static ?string $model = Slider::class;
+    protected static ?string $model = SliderConcreto::class;
     protected static ?string $navigationIcon = 'heroicon-o-photo';
     protected static ?string $navigationGroup = 'Sliders';
-    protected static ?string $navigationLabel = 'Slider Home';
-    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationLabel = 'Slider Concreto';
+    protected static ?string $pluralModelLabel = 'Sliders de Concreto';
+    protected static ?string $modelLabel = 'Slider de Concreto';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -27,7 +29,8 @@ class SliderResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->label('Título')
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->required(),
                 Forms\Components\TextInput::make('subtitle')
                     ->label('Subtítulo (aparece en la parte miniatura)')
                     ->maxLength(255),
@@ -43,7 +46,7 @@ class SliderResource extends Resource
                     ->maxLength(255),
                 SpatieMediaLibraryFileUpload::make('image')
                     ->label('Imagen')
-                    ->collection('slider')
+                    ->collection('slider_concreto')
                     ->required(),
                 Forms\Components\TextInput::make('order')
                     ->label('Orden')
@@ -103,9 +106,9 @@ class SliderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSliders::route('/'),
-            'create' => Pages\CreateSlider::route('/create'),
-            'edit' => Pages\EditSlider::route('/{record}/edit'),
+            'index' => Pages\ListConcretoSliders::route('/'),
+            'create' => Pages\CreateConcretoSlider::route('/create'),
+            'edit' => Pages\EditConcretoSlider::route('/{record}/edit'),
         ];
     }
 }

@@ -10,7 +10,7 @@ const TerraceriaPage = () => {
     useEffect(() => {
         const fetchConcretData = async () => {
             try {
-                const response = await fetch("/api/home-data");
+                const response = await fetch("/api/terraceria");
                 const data = await response.json();
                 setSliders(data.sliders || []);
                 setLoading(false);

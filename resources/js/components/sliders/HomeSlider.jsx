@@ -43,30 +43,24 @@ const HomeSlider = ({ dataSlider }) => {
                                     <div className="max-w-2xl">
                                         <div
                                             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-none font-milligrambold"
-                                            dangerouslySetInnerHTML={{ __html: item.title }}
+                                            dangerouslySetInnerHTML={{ __html: item.description }}
                                         ></div>
-                                        <Link
-                                            to="/nosotros"
-                                            className="inline-block bg-[#11312C] text-white font-medium px-8 py-3 rounded-full hover:bg-primary-600 transition-colors"
-                                        >
-                                            <span className="mr-2 font-integralcfheavy">
-                                                CONOCE MAS
-                                            </span>
-                                            <span className="inline-block bg-[#2C9C47] rounded-full p-1">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    className="h-6 w-10 inline text-[#11312C] text-2xl"
-                                                    viewBox="0 0 20 20"
-                                                    fill="currentColor"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </Link>
+                                        {item.button_text && item.button_text.trim() !== "" && (
+                                            <Link
+                                                to={item.button_link}
+                                                className="inline-block bg-[#11312C] text-white font-medium px-8 py-3 rounded-full hover:bg-primary-600 transition-colors"
+                                            >
+                                                <span 
+                                                    className="mr-2 font-integralcfheavy uppercase"
+                                                    dangerouslySetInnerHTML={{ __html: item.button_text }}
+                                                />
+                                                <span className="inline-block bg-[#2C9C47] rounded-full p-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-10 inline text-[#11312C] text-2xl" viewBox="0 0 20 20" fill="currentColor" > 
+                                                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" /> 
+                                                    </svg>
+                                                </span>
+                                            </Link>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -102,9 +96,10 @@ const HomeSlider = ({ dataSlider }) => {
                                     <span className={`
                                         ml-4 tracking-wide text-base font-bold
                                         ${isActive ? 'text-white' : 'text-white'}
-                                        text-left
-                                    `}>
-                                        {item.subtitle}
+                                        text-left leading-none
+                                    `}
+                                        dangerouslySetInnerHTML={{ __html: item.subtitle }}
+                                    >
                                     </span>
                                 </DotButton>
                             );

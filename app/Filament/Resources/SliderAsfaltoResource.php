@@ -1,24 +1,23 @@
 <?php
-// app/Filament/Resources/SliderResource.php
+// app/Filament/Resources/SliderAsfaltoResource.php
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SliderResource\Pages;
-use App\Models\Slider;
+use App\Filament\Resources\SliderAsfaltoResource\Pages;
+use App\Models\SliderAsfalto;
 use Filament\Forms;
 use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class SliderResource extends Resource
+class SliderAsfaltoResource extends Resource
 {
-    protected static ?string $model = Slider::class;
+    protected static ?string $model = SliderAsfalto::class;
     protected static ?string $navigationIcon = 'heroicon-o-photo';
     protected static ?string $navigationGroup = 'Sliders';
-    protected static ?string $navigationLabel = 'Slider Home';
+    protected static ?string $navigationLabel = 'Slider Asfalto';
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
@@ -27,13 +26,13 @@ class SliderResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->label('Título')
+                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('subtitle')
                     ->label('Subtítulo (aparece en la parte miniatura)')
                     ->maxLength(255),
                 MarkdownEditor::make('description')
-                    ->label('Descripción')
-                    ->required(),
+                    ->label('Descripción'),
                 Forms\Components\TextInput::make('button_text')
                     ->label('Texto del botón')
                     ->maxLength(50),
@@ -43,7 +42,7 @@ class SliderResource extends Resource
                     ->maxLength(255),
                 SpatieMediaLibraryFileUpload::make('image')
                     ->label('Imagen')
-                    ->collection('slider')
+                    ->collection('slider_asfalto')
                     ->required(),
                 Forms\Components\TextInput::make('order')
                     ->label('Orden')
@@ -103,9 +102,9 @@ class SliderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSliders::route('/'),
-            'create' => Pages\CreateSlider::route('/create'),
-            'edit' => Pages\EditSlider::route('/{record}/edit'),
+            'index' => Pages\ListSliderAsfaltos::route('/'),
+            'create' => Pages\CreateSliderAsfalto::route('/create'),
+            'edit' => Pages\EditSliderAsfalto::route('/{record}/edit'),
         ];
     }
 }

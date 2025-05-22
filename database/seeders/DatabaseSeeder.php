@@ -26,7 +26,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SettingSeeder::class,
             HomePagesSeeder::class,
-            SliderSeeder::class
+            SliderSeeder::class,
+            SliderConcretoSeeder::class,
+            ConcretoPageSeeder::class,
+            SliderAsfaltoSeeder::class,
+            AsfaltoPageSeeder::class,
+            SliderTerraceriaSeeder::class,
         ]);
 
     }

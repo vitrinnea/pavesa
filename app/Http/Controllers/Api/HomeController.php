@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AsfaltoPage;
+use App\Models\ConcretoPage;
 use App\Models\HomePage;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\News;
 use App\Models\Setting;
+use App\Models\SliderAsfalto;
+use App\Models\SliderConcreto;
+use App\Models\SliderTerraceria;
 
 class HomeController extends Controller
 {
@@ -52,6 +57,81 @@ class HomeController extends Controller
             'sliders' => $sliders,
             'homePage' => $homePage,
             'news' => $news,
+        ]);
+    }
+
+    public function concreto()
+    {
+        $sliders = SliderConcreto::where('is_active', true)
+            ->orderBy('order')
+            ->get()
+            ->map(function ($slider) {
+                $image = $slider->getFirstMediaUrl('slider_concreto');
+                return [
+                    'id' => $slider->id,
+                    'title' => $slider->title,
+                    'subtitle' => $slider->subtitle,
+                    'description' => $slider->description,
+                    'button_text' => $slider->button_text,
+                    'button_url' => $slider->button_url,
+                    'image' => $image,
+                    'order' => $slider->order,
+                ];
+            });
+        $concretPage = ConcretoPage::first();
+        return response()->json([
+            'sliders' => $sliders,
+            'concretPage' => $concretPage,
+        ]);
+    }
+
+    public function asfalto()
+    {
+        $sliders = SliderAsfalto::where('is_active', true)
+            ->orderBy('order')
+            ->get()
+            ->map(function ($slider) {
+                $image = $slider->getFirstMediaUrl('slider_asfalto');
+                return [
+                    'id' => $slider->id,
+                    'title' => $slider->title,
+                    'subtitle' => $slider->subtitle,
+                    'description' => $slider->description,
+                    'button_text' => $slider->button_text,
+                    'button_url' => $slider->button_url,
+                    'image' => $image,
+                    'order' => $slider->order,
+                ];
+            });
+        $asfaltoPage = AsfaltoPage::first();
+        return response()->json([
+            'sliders' => $sliders,
+            'asfaltoPage' => $asfaltoPage,
+        ]);
+    }
+
+    public function terraceria()
+    {
+        $sliders = SliderTerraceria::where('is_active', true)
+            ->orderBy('order')
+            ->get()
+            ->map(function ($slider) {
+                $image = $slider->getFirstMediaUrl('slider_terraceria');
+                return [
+                    'id' => $slider->id,
+                    'title' => $slider->title,
+                    'subtitle' => $slider->subtitle,
+                    'description' => $slider->description,
+                    'button_text' => $slider->button_text,
+                    'button_url' => $slider->button_url,
+                    'image' => $image,
+                    'order' => $slider->order,
+                ];
+            });
+        // $asfaltoPage = AsfaltoPage::first();
+        return response()->json([
+            'sliders' => $sliders,
+            // 'asfaltoPage' => $asfaltoPage,
         ]);
     }
 

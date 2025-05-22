@@ -22,6 +22,15 @@ use App\Http\Controllers\Api\ContactController;
 // Datos para la página principal
 Route::get('/home-data', [HomeController::class, 'index']);
 
+// Datos para la página concreto
+Route::get('/concreto', [HomeController::class, 'concreto']);
+
+// Datos para la página de asfalto
+Route::get('/asfalto', [HomeController::class, 'asfalto']);
+
+// Datos para la página de Terraceria
+Route::get('/terraceria', [HomeController::class, 'terraceria']);
+
 // Configuraciones globales
 Route::get('/settings', [HomeController::class, 'settings']);
 
