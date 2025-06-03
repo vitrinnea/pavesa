@@ -5,13 +5,15 @@ import Footer from './Footer';
 
 const Layout = () => {
     const [settings, setSettings] = useState({});
+    const [menus, setMenus] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('/api/settings')
             .then(response => response.json())
             .then(data => {
-                setSettings(data);
+                setSettings(data.settings);
+                setMenus(data.menus);
                 setLoading(false);
             })
             .catch(error => {
@@ -26,11 +28,11 @@ const Layout = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Header settings={settings} />
+            <Header settings={settings} menus={menus} />
             <main className="flex-grow">
                 <Outlet context={[settings]} />
             </main>
-            <Footer settings={settings} />
+            <Footer settings={settings} menus={menus} />
         </div>
     );
 };

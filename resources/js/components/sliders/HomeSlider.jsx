@@ -3,6 +3,11 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
+import {
+    usePrevNextButtons,
+    PrevButton,
+    NextButton,
+} from "./EmblaCarouselArrowButtonsHome";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import { Link } from "react-router-dom";
 
@@ -15,6 +20,12 @@ const HomeSlider = ({ dataSlider }) => {
 
     const { selectedIndex, scrollSnaps, onDotButtonClick } =
         useDotButton(emblaApi);
+    const {
+            prevBtnDisabled,
+            nextBtnDisabled,
+            onPrevButtonClick,
+            onNextButtonClick,
+        } = usePrevNextButtons(emblaApi);
 
     const sliderData =
         typeof dataSlider === "string" ? JSON.parse(dataSlider) : dataSlider;
@@ -104,6 +115,28 @@ const HomeSlider = ({ dataSlider }) => {
                                 </DotButton>
                             );
                         })}
+                    <div>
+                        <PrevButton
+                            onClick={onPrevButtonClick}
+                            disabled={prevBtnDisabled}
+                            className="!bg-[#11312C] !w-12 py-6 opacity-80 hover:opacity-100 border-solid border-[1px] border-[#11312C] !rounded-none"
+                            style={{
+                                backgroundColor: "#119D58",
+                                color: "#fff",
+                                borderRadius: "8px",
+                            }}
+                        />
+                        <NextButton
+                            onClick={onNextButtonClick}
+                            disabled={nextBtnDisabled}
+                            className="!bg-[#11312C] !w-12 py-6 opacity-80 hover:opacity-100 border-solid border-[1px] border-[#11312C] !rounded-none"
+                            style={{
+                                backgroundColor: "#119D58",
+                                color: "#fff",
+                                borderRadius: "8px",
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Header = ({ settings }) => {
+const Header = ({ settings, menus }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
 
@@ -60,108 +60,26 @@ const Header = ({ settings }) => {
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center">
                         <ul className="flex space-x-1">
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 font-milligramregular uppercase text-sm relative ${
-                                            isActive
-                                                ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
-                                                : "text-white hover:text-[#2C9C47]"
-                                        }
-                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0 
-                after:w-0 hover:after:w-full after:transition-all after:duration-300 
+                            {menus && menus.map((menuItem) => (
+                                <li key={menuItem.id}>
+                                    <NavLink
+                                        to={menuItem.url}
+                                        target={menuItem.target}
+                                        className={({ isActive }) =>
+                                            `px-4 py-2 font-milligramregular uppercase text-sm relative ${
+                                                isActive
+                                                    ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
+                                                    : "text-white hover:text-[#2C9C47]"
+                                            }
+                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0
+                after:w-0 hover:after:w-full after:transition-all after:duration-300
                 after:origin-right hover:after:origin-left`
-                                    }
-                                >
-                                    Inicio
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/concreto"
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 font-milligramregular uppercase text-sm relative ${
-                                            isActive
-                                                ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
-                                                : "text-white hover:text-[#2C9C47]"
                                         }
-                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0 
-                after:w-0 hover:after:w-full after:transition-all after:duration-300 
-                after:origin-right hover:after:origin-left`
-                                    }
-                                >
-                                    Concreto
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/asfalto"
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 font-milligramregular uppercase text-sm relative ${
-                                            isActive
-                                                ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
-                                                : "text-white hover:text-[#2C9C47]"
-                                        }
-                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0 
-                after:w-0 hover:after:w-full after:transition-all after:duration-300 
-                after:origin-right hover:after:origin-left`
-                                    }
-                                >
-                                    Asfalto
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/terraceria"
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 font-milligramregular uppercase text-sm relative ${
-                                            isActive
-                                                ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
-                                                : "text-white hover:text-[#2C9C47]"
-                                        }
-                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0 
-                after:w-0 hover:after:w-full after:transition-all after:duration-300 
-                after:origin-right hover:after:origin-left`
-                                    }
-                                >
-                                    Terracería
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/blog"
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 font-milligramregular uppercase text-sm relative ${
-                                            isActive
-                                                ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
-                                                : "text-white hover:text-[#2C9C47]"
-                                        }
-                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0 
-                after:w-0 hover:after:w-full after:transition-all after:duration-300 
-                after:origin-right hover:after:origin-left`
-                                    }
-                                >
-                                    Blog
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/contactenos"
-                                    className={({ isActive }) =>
-                                        `px-4 py-2 font-milligramregular uppercase text-sm relative ${
-                                            isActive
-                                                ? "!font-milligrambold text-[#2C9C47] after:w-full after:origin-left"
-                                                : "text-white hover:text-[#2C9C47]"
-                                        }
-                after:content-[""] after:absolute after:h-[2px] after:bg-[#2C9C47] after:left-0 after:right-0 after:bottom-0 
-                after:w-0 hover:after:w-full after:transition-all after:duration-300 
-                after:origin-right hover:after:origin-left`
-                                    }
-                                >
-                                    Contáctanos
-                                </NavLink>
-                            </li>
+                                    >
+                                        {menuItem.title}
+                                    </NavLink>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
 

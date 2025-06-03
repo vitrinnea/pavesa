@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AsfaltoPage;
 use App\Models\ConcretoPage;
 use App\Models\HomePage;
+use App\Models\MenuItem;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\News;
@@ -137,8 +138,30 @@ class HomeController extends Controller
 
     public function settings()
     {
+        $menu = MenuItem::whereNull('parent_id')
+            ->orderBy('order')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'title' => $item->title,
+                    'url' => $item->url,
+                    'target' => $item->target,
+                    'children' => $item->children->map(function ($child) {
+                        return [
+                            'id' => $child->id,
+                            'title' => $child->title,
+                            'url' => $child->url,
+                            'target' => $child->target,
+                        ];
+                    }),
+                ];
+            });
         $settings = Setting::all()->pluck('value', 'key');
-        return response()->json($settings);
+        return response()->json([
+            'menus' => $menu,
+            'settings' => $settings,
+        ]);
     }
 }
 
