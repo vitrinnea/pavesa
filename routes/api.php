@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\QouterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,6 @@ Route::get('/news/{slug}', [NewsController::class, 'show']);
 Route::post('/contact', [ContactController::class, 'contact']);
 Route::post('/quote', [ContactController::class, 'quote']);
 Route::post('/newsletter', [ContactController::class, 'newsletter']);
+
+// qouter
+Route::post('/create-qouter', [QouterController::class, 'send']);
