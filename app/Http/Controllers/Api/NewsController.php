@@ -39,17 +39,35 @@ class NewsController extends Controller
 
     public function show($slug)
     {
-        $newsItem = BlogPost::where('slug', $slug)->where('is_active', true)->firstOrFail();
-        $image = $newsItem->getFirstMediaUrl('featured');
+        $blogs = BlogPost::where('published_at', '<=', Carbon::now())
+            ->latest('published_at')
+            ->take(3)
+            ->get()
+            ->map(function ($newsItem) {
+                $image = $newsItem->getFirstMediaUrl('blog_image');
+                return [
+                    'id' => $newsItem->id,
+                    'title' => $newsItem->title,
+                    'slug' => $newsItem->slug,
+                    'image' => $image,
+                ];
+            });
+        $newsItem = BlogPost::where('slug', $slug)->firstOrFail();
+        $image = $newsItem->getFirstMediaUrl('blog_image');
 
         return response()->json([
-            'id' => $newsItem->id,
-            'title' => $newsItem->title,
-            'slug' => $newsItem->slug,
-            'content' => $newsItem->content,
-            'excerpt' => $newsItem->excerpt,
-            'published_at' => $newsItem->published_at->format('d/m/Y'),
-            'image' => $image,
+            'article' => [
+                'id' => $newsItem->id,
+                'title' => $newsItem->title,
+                'slug' => $newsItem->slug,
+                'content' => $newsItem->content,
+                'dia' => $newsItem->published_at->format('d'),
+                'mes' => $newsItem->published_at->format('M'),
+                'excerpt' => $newsItem->excerpt,
+                'published_at' => $newsItem->published_at->format('d/m/Y'),
+                'image' => $image,
+            ],
+            'blogs' => $blogs,
         ]);
     }
 }
