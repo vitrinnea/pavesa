@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import QuoteForm from "../forms/QuoteForm";
 
 const TerraceriaPage = () => {
     const [settings] = useOutletContext();
@@ -80,34 +81,8 @@ const TerraceriaPage = () => {
                             </div>
                         </div>
                         <div className="lg:w-1/2 px-5">
-                            <form action="">
-                                <div className="flex flex-wrap mt-10">
-                                    <div className="w-full lg:w-1/2 pr-2">
-                                        <input type="text" className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]" placeholder="Nombre completo:" />
-                                    </div>
-                                    <div className="w-full lg:w-1/2">
-                                        <input type="text" className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]" placeholder="Correo electrónico:" />
-                                    </div>
-                                </div>
-                                <div className="flex flex-wrap mt-4">
-                                    <div className="w-full lg:w-1/2 pr-2">
-                                        <input type="text" className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]" placeholder="Número telefónico:" />
-                                    </div>
-                                    <div className="w-full lg:w-1/2">
-                                        <input type="text" className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]" placeholder="Ubicación de proyecto:" />
-                                    </div>
-                                </div>
-                                <div className="w-full lg:w-100 mt-4">
-                                    <input type="text" className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]" placeholder="Especificación de proyecto:" />
-                                </div>
-                                <div className="w-full lg:w-100 mt-4">
-                                    <textarea className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]" placeholder="Mensaje adicional:" rows={4} />
-                                </div>
-                                <div className="w-full lg:w-100 mt-2">
-                                    <button className="py-3 px-7 rounded-lg bg-[#2C9C47] font-integralcfheavy text-white">ENVIAR</button>
-                                </div>
-                            </form>
-                        </div>    
+                            <QuoteForm />
+                        </div>
                     </div>
                     <div className="container mx-auto">
                         <img src="/images/contacto/camion-pavesa-contacto.png" className="max-w-full h-auto block" alt="" />
