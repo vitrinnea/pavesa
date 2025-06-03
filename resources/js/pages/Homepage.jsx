@@ -173,68 +173,7 @@ const Homepage = () => {
                             />
                         </div>
                         <div className="md:w-1/2 p-5">
-                            <form action="">
-                                <h2 className="text-white max-w-md text-4xl px-2 py-1 font-milligramregular">
-                                    <span className="bg-transparent">
-                                        Puedes cotizar tu proyecto
-                                    </span>
-                                    <br />
-                                    <span className="bg-[#2C9C47] px-2">
-                                        de forma rápida y segura
-                                    </span>
-                                </h2>
-                                <div className="flex flex-wrap mt-10">
-                                    <div className="w-full lg:w-1/2 lg:pr-2">
-                                        <input
-                                            type="text"
-                                            className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
-                                            placeholder="Nombre completo:"
-                                        />
-                                    </div>
-                                    <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
-                                        <input
-                                            type="text"
-                                            className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
-                                            placeholder="Correo electrónico:"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex flex-wrap mt-4">
-                                    <div className="w-full lg:w-1/2 lg:pr-2">
-                                        <input
-                                            type="text"
-                                            className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
-                                            placeholder="Número telefónico:"
-                                        />
-                                    </div>
-                                    <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
-                                        <input
-                                            type="text"
-                                            className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
-                                            placeholder="Ubicación de proyecto:"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="w-full lg:w-100 mt-4">
-                                    <input
-                                        type="text"
-                                        className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
-                                        placeholder="Especificación de proyecto:"
-                                    />
-                                </div>
-                                <div className="w-full lg:w-100 mt-4">
-                                    <textarea
-                                        className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
-                                        placeholder="Mensaje adicional:"
-                                        rows={4}
-                                    />
-                                </div>
-                                <div className="w-full lg:w-100 mt-2">
-                                    <button className="py-3 px-7 rounded-lg bg-[#2C9C47] font-integralcfheavy text-white">
-                                        ENVIAR
-                                    </button>
-                                </div>
-                            </form>
+                            <QuoteForm/>
                         </div>
                     </div>
                 </div>

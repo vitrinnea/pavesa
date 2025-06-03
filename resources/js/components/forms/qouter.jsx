@@ -1,56 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "@inertiajs/react";
 
 export default function QuoteForm() {
-    const [data, setData] = useState({
+    const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
         phone: "",
         location: "",
-        description: "",
+        specification: "",
         message: "",
     });
-    const [errors, setErrors] = useState({});
-    const [processing, setProcessing] = useState(false);
 
-    const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setProcessing(true);
-        setErrors({});
-        try {
-            const response = await fetch('/api/create-qouter', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content'),
-                },
-                body: JSON.stringify(data),
-            });
+        post('/api/create-quote', {
+            onSuccess: () => reset(),
+            onError: (errors) => {
+                console.error("Error submitting form:", errors);
+            },
+            preserveScroll: true,
+            preserveState: true,
+            onFinish: () => {
+                // Optionally, you can add any additional logic after the form submission
+                console.log("Form submitted successfully");
+            },
+        });
 
-            const result = await response.json();
-
-            if (!response.ok) {
-                setErrors(result.errors || {});
-            } else {
-                setData({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    location: "",
-                    description: "",
-                    message: "",
-                });
-                alert(result.message || "Cotización enviada correctamente.");
-            }
-        } catch (error) {
-            alert("Ocurrió un error al enviar el formulario.");
-        }
-        setProcessing(false);
     };
 
     return (
@@ -68,9 +43,8 @@ export default function QuoteForm() {
                 <div className="w-full lg:w-1/2 lg:pr-2">
                     <input
                         type="text"
-                        name="name"
                         value={data.name}
-                        onChange={handleChange}
+                        onChange={e => setData('name', e.target.value)}
                         className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
                         placeholder="Nombre completo:"
                     />
@@ -79,9 +53,8 @@ export default function QuoteForm() {
                 <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
                     <input
                         type="email"
-                        name="email"
                         value={data.email}
-                        onChange={handleChange}
+                        onChange={e => setData('email', e.target.value)}
                         className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
                         placeholder="Correo electrónico:"
                     />
@@ -92,9 +65,8 @@ export default function QuoteForm() {
                 <div className="w-full lg:w-1/2 lg:pr-2">
                     <input
                         type="text"
-                        name="phone"
                         value={data.phone}
-                        onChange={handleChange}
+                        onChange={e => setData('phone', e.target.value)}
                         className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
                         placeholder="Número telefónico:"
                     />
@@ -103,9 +75,8 @@ export default function QuoteForm() {
                 <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
                     <input
                         type="text"
-                        name="location"
                         value={data.location}
-                        onChange={handleChange}
+                        onChange={e => setData('location', e.target.value)}
                         className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
                         placeholder="Ubicación de proyecto:"
                     />
@@ -115,19 +86,17 @@ export default function QuoteForm() {
             <div className="w-full lg:w-100 mt-4">
                 <input
                     type="text"
-                    name="description"
-                    value={data.description}
-                    onChange={handleChange}
+                    value={data.specification}
+                    onChange={e => setData('specification', e.target.value)}
                     className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
                     placeholder="Especificación de proyecto:"
                 />
-                {errors.description && <div className="text-red-500 text-xs">{errors.description}</div>}
+                {errors.specification && <div className="text-red-500 text-xs">{errors.specification}</div>}
             </div>
             <div className="w-full lg:w-100 mt-4">
                 <textarea
-                    name="message"
                     value={data.message}
-                    onChange={handleChange}
+                    onChange={e => setData('message', e.target.value)}
                     className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
                     placeholder="Mensaje adicional:"
                     rows={4}
