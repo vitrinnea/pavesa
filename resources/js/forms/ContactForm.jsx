@@ -1,198 +1,148 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const ContactForm = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
+export default function QuoteForm() {
+    const [data, setData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        location: "",
+        description: "",
+        message: "",
     });
-
     const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitSuccess, setSubmitSuccess] = useState(false);
-    const [submitError, setSubmitError] = useState('');
+    const [processing, setProcessing] = useState(false);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-
-        // Clear error when field is edited
-        if (errors[name]) {
-            setErrors({
-                ...errors,
-                [name]: '',
-            });
-        }
-    };
-
-    const validateForm = () => {
-        const newErrors = {};
-
-        if (!formData.name.trim()) {
-            newErrors.name = 'El nombre es requerido';
-        }
-
-        if (!formData.email.trim()) {
-            newErrors.email = 'El email es requerido';
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = 'El email no es válido';
-        }
-
-        if (!formData.phone.trim()) {
-            newErrors.phone = 'El teléfono es requerido';
-        }
-
-        if (!formData.subject.trim()) {
-            newErrors.subject = 'El asunto es requerido';
-        }
-
-        if (!formData.message.trim()) {
-            newErrors.message = 'El mensaje es requerido';
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        setData({ ...data, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!validateForm()) {
-            return;
-        }
-
-        setIsSubmitting(true);
-        setSubmitError('');
-
+        setProcessing(true);
+        setErrors({});
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch('/api/create-qouter', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content'),
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(data),
             });
+
+            const result = await response.json();
 
             if (!response.ok) {
-                throw new Error('Error al enviar el formulario');
+                setErrors(result.errors || {});
+            } else {
+                setData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    location: "",
+                    description: "",
+                    message: "",
+                });
+                alert(result.message || "Cotización enviada correctamente.");
             }
-
-            setSubmitSuccess(true);
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                subject: '',
-                message: '',
-            });
-
-            setTimeout(() => {
-                setSubmitSuccess(false);
-            }, 5000);
-
         } catch (error) {
-            setSubmitError('Ocurrió un error al enviar el formulario. Por favor, intente nuevamente.');
-            console.error('Error submitting form:', error);
-        } finally {
-            setIsSubmitting(false);
+            alert("Ocurrió un error al enviar el formulario.");
         }
+        setProcessing(false);
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4">
-            {submitSuccess && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-                    <strong className="font-bold">¡Éxito!</strong>
-                    <span className="block sm:inline"> Su mensaje ha sido enviado correctamente. Nos pondremos en contacto con usted a la brevedad.</span>
-                </div>
-            )}
-
-            {submitError && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
-                    <strong className="font-bold">Error:</strong>
-                    <span className="block sm:inline"> {submitError}</span>
-                </div>
-            )}
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
+        <form onSubmit={handleSubmit}>
+            <h2 className="text-white max-w-md text-4xl px-2 py-1 font-milligramregular">
+                <span className="bg-transparent">
+                    Puedes cotizar tu proyecto
+                </span>
+                <br />
+                <span className="bg-[#2C9C47] px-2">
+                    de forma rápida y segura
+                </span>
+            </h2>
+            <div className="flex flex-wrap mt-10">
+                <div className="w-full lg:w-1/2 lg:pr-2">
                     <input
                         type="text"
                         name="name"
-                        placeholder="Nombre completo"
-                        value={formData.name}
+                        value={data.name}
                         onChange={handleChange}
-                        className={`w-full p-3 rounded-md border ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                        className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
+                        placeholder="Nombre completo:"
                     />
-                    {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+                    {errors.name && <div className="text-red-500 text-xs">{errors.name}</div>}
                 </div>
-
-                <div>
+                <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
                     <input
                         type="email"
                         name="email"
-                        placeholder="Correo electrónico"
-                        value={formData.email}
+                        value={data.email}
                         onChange={handleChange}
-                        className={`w-full p-3 rounded-md border ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                        className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
+                        placeholder="Correo electrónico:"
                     />
-                    {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+                    {errors.email && <div className="text-red-500 text-xs">{errors.email}</div>}
                 </div>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Teléfono"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className={`w-full p-3 rounded-md border ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
-                    />
-                    {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
-                </div>
-
-                <div>
+            <div className="flex flex-wrap mt-4">
+                <div className="w-full lg:w-1/2 lg:pr-2">
                     <input
                         type="text"
-                        name="subject"
-                        placeholder="Asunto"
-                        value={formData.subject}
+                        name="phone"
+                        value={data.phone}
                         onChange={handleChange}
-                        className={`w-full p-3 rounded-md border ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
+                        className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
+                        placeholder="Número telefónico:"
                     />
-                    {errors.subject && <p className="text-red-500 text-xs">{errors.subject}</p>}
+                    {errors.phone && <div className="text-red-500 text-xs">{errors.phone}</div>}
+                </div>
+                <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
+                    <input
+                        type="text"
+                        name="location"
+                        value={data.location}
+                        onChange={handleChange}
+                        className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
+                        placeholder="Ubicación de proyecto:"
+                    />
+                    {errors.location && <div className="text-red-500 text-xs">{errors.location}</div>}
                 </div>
             </div>
-
-            <div>
+            <div className="w-full lg:w-100 mt-4">
+                <input
+                    type="text"
+                    name="description"
+                    value={data.description}
+                    onChange={handleChange}
+                    className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
+                    placeholder="Especificación de proyecto:"
+                />
+                {errors.description && <div className="text-red-500 text-xs">{errors.description}</div>}
+            </div>
+            <div className="w-full lg:w-100 mt-4">
                 <textarea
                     name="message"
-                    placeholder="Mensaje"
-                    rows="5"
-                    value={formData.message}
+                    value={data.message}
                     onChange={handleChange}
-                    className={`w-full p-3 rounded-md border ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
-                ></textarea>
-                {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
+                    className="focus:outline-none focus:ring-2 focus:ring-[#2C9C47] rounded-lg py-2 px-4 w-full bg-[#D9D9D9] text-[#11312C] placeholder-[#11312C]"
+                    placeholder="Mensaje adicional:"
+                    rows={4}
+                />
+                {errors.message && <div className="text-red-500 text-xs">{errors.message}</div>}
             </div>
-
-            <button
-                type="submit"
-                className="bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300 w-full"
-                disabled={isSubmitting}
-            >
-                {isSubmitting ? 'Enviando...' : 'ENVIAR MENSAJE'}
-            </button>
+            <div className="w-full lg:w-100 mt-2">
+                <button
+                    type="submit"
+                    disabled={processing}
+                    className="py-3 px-7 rounded-lg bg-[#2C9C47] font-integralcfheavy text-white"
+                >
+                    ENVIAR
+                </button>
+            </div>
         </form>
     );
-};
-
-export default ContactForm;
+}

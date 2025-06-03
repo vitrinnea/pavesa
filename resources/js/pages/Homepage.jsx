@@ -8,45 +8,11 @@ import QuoteForm from "../forms/QuoteForm";
 import ServicesBanner from "../components/ServicesBanner";
 import Services from "../components/Services";
 
-const proyectosData = [
-    {
-        titulo: "Briko, Nuevo Cuscatlán",
-        descripcion: "Obra Gris",
-        imagen: "/images/home/proyecto1.png", // Ajusta esta ruta a tus imágenes
-    },
-    {
-        titulo: "ByPass, Usulután",
-        descripcion: "Suministro y colocación de mezcla asfáltica",
-        imagen: "/images/home/proyecto2.png",
-    },
-    {
-        titulo: "Carretera a Comalapa",
-        descripcion: "Lanzado de concreto (Shotcrete)",
-        imagen: "/images/home/proyecto2.png",
-    },
-    {
-        titulo: "Briko, Nuevo Cuscatlán",
-        descripcion: "Obra Gris",
-        imagen: "/images/home/proyecto1.png", // Ajusta esta ruta a tus imágenes
-    },
-    {
-        titulo: "ByPass, Usulután",
-        descripcion: "Suministro y colocación de mezcla asfáltica",
-        imagen: "/images/home/proyecto2.png",
-    },
-    {
-        titulo: "Carretera a Comalapa",
-        descripcion: "Lanzado de concreto (Shotcrete)",
-        imagen: "/images/home/proyecto2.png",
-    },
-    // Puedes agregar más proyectos según necesites
-];
-
 const Homepage = () => {
     const [settings] = useOutletContext();
     const [sliders, setSliders] = useState([]);
     const [homePage, setHomePage] = useState([]);
-
+    const [proyectosData, setProyectosData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -57,15 +23,22 @@ const Homepage = () => {
 
                 setSliders(data.sliders || []);
                 setHomePage(data.homePage || []);
-
-                setLoading(false);
             } catch (error) {
                 console.error("Error fetching home data:", error);
-                setLoading(false);
             }
         };
 
-        fetchHomeData();
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch("/api/projects");
+                const data = await response.json();
+                setProyectosData(data || []);
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+            }
+        };
+
+        Promise.all([fetchHomeData(), fetchProjects()]).then(() => setLoading(false));
     }, []);
 
     if (loading) {
