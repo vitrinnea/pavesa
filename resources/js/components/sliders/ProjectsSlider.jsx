@@ -74,8 +74,8 @@ const ProjectsSlider = ({ proyectos }) => {
                                     >
                                         <div className="slide-content">
                                             <img
-                                                src={proyecto.imagen}
-                                                alt={proyecto.titulo}
+                                                src={'/storage/'+proyecto.image}
+                                                alt={proyecto.title}
                                                 className="embla__slide__img w-full h-[370px] object-cover rounded-[12px]"
                                             />
                                             <div className="mt-4">
@@ -85,10 +85,10 @@ const ProjectsSlider = ({ proyectos }) => {
                                                         color: "#0F433D",
                                                     }}
                                                 >
-                                                    {proyecto.titulo}
+                                                    {proyecto.title}
                                                 </h3>
                                                 <p className="text-[#222] font-medium font-milligramregular text-[16px]">
-                                                    {proyecto.descripcion}
+                                                    {proyecto.description}
                                                 </p>
                                             </div>
                                         </div>

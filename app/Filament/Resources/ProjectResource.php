@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -23,7 +24,23 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('title')
+                    ->label('Título')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->label('Descripción')
+                    ->rows(4)
+                    ->maxLength(1000),
+                Forms\Components\FileUpload::make('image')
+                                            ->directory('home/projects')
+                                            ->image()
+                                            ->imageEditor(true)
+                                            ->imageCropAspectRatio('419:419')
+                                            ->imageResizeMode('cover')               // Asegura que la imagen se ajuste completamente
+                                            ->imageResizeTargetWidth(419)
+                                            ->imageResizeTargetHeight(419)
+                                            ->label('Imagen 419x419px'),
             ]);
     }
 
@@ -31,7 +48,8 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')->label('Título')->searchable(),
+                Tables\Columns\TextColumn::make('description')->label('Descripción')->limit(50),
             ])
             ->filters([
                 //
