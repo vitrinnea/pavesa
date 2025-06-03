@@ -11,6 +11,7 @@ import ConcretoPage from './pages/ConcretoPage';
 import AsfaltoPage from './pages/AsfaltoPage';
 import TerraceriaPage from './pages/TerraceriaPage';
 import BlogPage from './pages/BlogPage';
+import BlogPageInterna from './pages/BlogPageInterna';
 import ContactPage from './pages/ContactPage';
 
 const App = () => {
@@ -31,6 +32,9 @@ const App = () => {
                 </Route>
                 <Route path="/blog" element={<Layout />}>
                     <Route index element={<BlogPage />} />
+                </Route>
+                <Route path="/blog/:slug" element={<Layout />}>
+                    <Route index element={<BlogPageInterna />} />
                 </Route>
                 <Route path="/contactenos" element={<Layout />}>
                     <Route index element={<ContactPage />} />

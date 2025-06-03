@@ -1,45 +1,45 @@
 <?php
-// app/Http/Controllers/Api/NewsController.php
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\News;
+use App\Models\BlogPost;
+use Illuminate\Support\Carbon;
 
 class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::where('is_active', true)
+        $blogs = BlogPost::where('published_at', '<=', Carbon::now())
             ->latest('published_at')
-            ->paginate(9);
+            ->paginate(40);
 
-        $mappedNews = $news->map(function ($newsItem) {
-            $image = $newsItem->getFirstMediaUrl('featured');
+        $mappedNews = $blogs->map(function ($newsItem) {
+            $image = $newsItem->getFirstMediaUrl('blog_image');
             return [
                 'id' => $newsItem->id,
                 'title' => $newsItem->title,
                 'slug' => $newsItem->slug,
                 'excerpt' => $newsItem->excerpt,
-                'published_at' => $newsItem->published_at->format('d/m/Y'),
+                'dia' => $newsItem->published_at->format('d'),
+                'mes' => $newsItem->published_at->format('M'),
                 'image' => $image,
             ];
         });
 
         return response()->json([
-            'news' => $mappedNews,
+            'blogs' => $mappedNews,
             'pagination' => [
-                'total' => $news->total(),
-                'per_page' => $news->perPage(),
-                'current_page' => $news->currentPage(),
-                'last_page' => $news->lastPage(),
+                'total' => $blogs->total(),
+                'per_page' => $blogs->perPage(),
+                'current_page' => $blogs->currentPage(),
+                'last_page' => $blogs->lastPage(),
             ],
         ]);
     }
 
     public function show($slug)
     {
-        $newsItem = News::where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $newsItem = BlogPost::where('slug', $slug)->where('is_active', true)->firstOrFail();
         $image = $newsItem->getFirstMediaUrl('featured');
 
         return response()->json([

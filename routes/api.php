@@ -43,8 +43,8 @@ Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{slug}', [ProjectController::class, 'show']);
 
 // Noticias
-Route::get('/news', [NewsController::class, 'index']);
-Route::get('/news/{slug}', [NewsController::class, 'show']);
+Route::get('/blog', [NewsController::class, 'index']);
+Route::get('/blog/{slug}', [NewsController::class, 'show']);
 
 // Formularios
 Route::post('/contact', [ContactController::class, 'contact']);

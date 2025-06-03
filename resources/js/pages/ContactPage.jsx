@@ -32,7 +32,7 @@ const TerraceriaPage = () => {
             {/* Hero Slider */}
             <section className="container-custom">
                 <div className="relative">
-                    <img src="/images/contacto/bg-contacto.png" className="max-w-full h-auto block" alt="" />
+                    <img src="/images/contacto/bg-contacto.png" className="w-full h-auto block" alt="" />
                     <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <div className="px-20">
                             <h2 className="text-white font-integralcfheavy text-7xl text-shadow max-w-xl mb-3">

@@ -101,7 +101,7 @@ const Header = ({ settings, menus }) => {
                             </svg>
                         </button>
                         <Link
-                            to="/contacto"
+                            to="/contactenos"
                             className="bg-[#2C9C47] text-white px-4 py-2 rounded-full font-medium font-integralcfheavy flex items-center"
                         >
                             COTIZA

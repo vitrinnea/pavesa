@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\AsfaltoPage;
+use App\Models\BlogPost;
 use App\Models\ConcretoPage;
 use App\Models\HomePage;
 use App\Models\MenuItem;
-use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Models\Slider;
-use App\Models\News;
 use App\Models\Setting;
 use App\Models\SliderAsfalto;
 use App\Models\SliderConcreto;
@@ -35,21 +35,20 @@ class HomeController extends Controller
                     'order' => $slider->order,
                 ];
             });
-        // Fetch the latest 3 news items
         $homePage = HomePage::first();
-
-        $news = News::where('is_active', true)
+        $news = BlogPost::where('published_at', '<=', Carbon::now())
             ->latest('published_at')
             ->take(3)
             ->get()
             ->map(function ($newsItem) {
-                $image = $newsItem->getFirstMediaUrl('featured');
+                $image = $newsItem->getFirstMediaUrl('blog_image');
                 return [
                     'id' => $newsItem->id,
                     'title' => $newsItem->title,
                     'slug' => $newsItem->slug,
                     'excerpt' => $newsItem->excerpt,
-                    'published_at' => $newsItem->published_at->format('d/m/Y'),
+                    'dia' => $newsItem->published_at->format('d'),
+                    'mes' => $newsItem->published_at->format('M'),
                     'image' => $image,
                 ];
             });
