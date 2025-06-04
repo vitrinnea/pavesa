@@ -76,7 +76,7 @@ const ProjectsSlider = ({ proyectos }) => {
                                             <img
                                                 src={'/storage/'+proyecto.image}
                                                 alt={proyecto.title}
-                                                className="embla__slide__img w-full h-[370px] object-cover rounded-[12px]"
+                                                className="embla__slide__img w-full h-[370px] object-cover "
                                             />
                                             <div className="mt-4">
                                                 <h3

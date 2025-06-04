@@ -14,6 +14,7 @@ use App\Models\Setting;
 use App\Models\SliderAsfalto;
 use App\Models\SliderConcreto;
 use App\Models\SliderTerraceria;
+use App\Models\TerraceriaPage;
 
 class HomeController extends Controller
 {
@@ -128,10 +129,10 @@ class HomeController extends Controller
                     'order' => $slider->order,
                 ];
             });
-        // $asfaltoPage = AsfaltoPage::first();
+        $terraceriaPage = TerraceriaPage::first();
         return response()->json([
             'sliders' => $sliders,
-            // 'asfaltoPage' => $asfaltoPage,
+            'terraceriaPage' => $terraceriaPage,
         ]);
     }
 
