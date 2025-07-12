@@ -36,8 +36,9 @@ class BlogPost extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
-              ->width(368)
-              ->height(232)
-              ->sharpen(10);
+            ->width(368)
+            ->height(232)
+            ->sharpen(10)
+            ->nonQueued(); // Agregar esta línea
     }
 }

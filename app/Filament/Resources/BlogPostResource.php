@@ -50,7 +50,7 @@ class BlogPostResource extends Resource
                                     ->unique(ignoreRecord: true),
                                 Textarea::make('excerpt')
                                     ->label('Extracto')
-                                    ->maxLength(500),
+                                    ->maxLength(255),
                                 RichEditor::make('content')
                                     ->label('Contenido')
                                     ->required()
