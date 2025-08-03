@@ -41,7 +41,6 @@ Route::get('/services/{id}', [ServiceController::class, 'show']);
 
 // Proyectos
 Route::get('/projects', [ProjectController::class, 'index']);
-Route::get('/projects/{slug}', [ProjectController::class, 'show']);
 
 // Noticias
 Route::get('/blog', [NewsController::class, 'index']);

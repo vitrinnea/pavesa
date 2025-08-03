@@ -88,8 +88,7 @@ const Homepage = () => {
                 <div className="container mx-auto lg:px-4 md:px-3">
                     <div className="flex flex-col sm:flex-row py-4 sm:py-5 px-4 sm:px-10 bg-[rgba(14,42,38,0.79)] justify-center sm:justify-around items-center">
                         <p className="text-white font-milligrambold text-lg sm:text-2xl max-w-md text-center sm:text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit,
+                            {homePage?.[`service_description_general`]}
                         </p>
                         <button className="bg-[#2C9C47] py-2 px-4 rounded-3xl text-white transition-all duration-300 transform hover:scale-105 hover:bg-[#2C9C47]/90 mt-4 sm:mt-0">
                             <span className="inline-block font-integralcfheavy uppercase text-sm sm:text-base">
