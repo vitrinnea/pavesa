@@ -44,29 +44,29 @@ const ConcretoPage = () => {
                 </section>
             )}
             <section>
-                <div className="container-custom bg-[url(/images/concreto/bg-concreto.png)] bg-bottom bg-cover bg-no-repeat">
-                    <div className="grid grid-cols-12 py-10 items-center">
-                        <div className="lg:col-span-7 md:col-span-6 col-span-12 px-10">
-                            <h2 className="font-milligramregular text-4xl text-white" 
+                <div className="container-custom bg-[url(/images/concreto/bg-concreto.png)] bg-bottom bg-cover bg-no-repeat px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-12 py-10 items-center">
+                        <div className="md:col-span-7 col-span-1 px-0 md:px-10">
+                            <h2 className="font-milligramregular text-2xl md:text-4xl text-white"
                                 dangerouslySetInnerHTML={{ __html: concretPage.section_title_01 }}>
                             </h2>
-                            <p className="text-white lg:text-xl md:text-lg text-md"
+                            <p className="text-white text-base md:text-xl"
                                 dangerouslySetInnerHTML={{ __html: concretPage.section_description_01 }}
                             ></p>
                         </div>
-                        <div className="lg:col-span-5 md:col-span-6 col-span-12">
-                            <img src={`/storage/${concretPage?.section_image_01}`} className="max-w-max ml-auto max-h-[650px]" alt="Concreto Pavesa - Experiencia y compromiso" />
+                        <div className="md:col-span-5 col-span-1 mt-8 md:mt-0">
+                            <img src={`/storage/${concretPage?.section_image_01}`} className="w-full max-w-[400px] md:max-w-max ml-auto max-h-[400px] md:max-h-[650px]" alt="Concreto Pavesa - Experiencia y compromiso" />
                         </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <div className="container mx-auto pt-14">
-                    <h2 className="section-title text-center mb-12 font-integralcfheavy lg:text-5xl md:text-4xl text-3xl text-[#11312C]"
+                <div className="container mx-auto pt-14 px-4">
+                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-2xl md:text-5xl text-[#11312C]"
                         dangerouslySetInnerHTML={{ __html: concretPage.section_title_02 }}>
                     </h2>
-                    <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div className="px-5 pt-5 pb-16">
                             <div className="flex items-center justify-center h-[135px] mb-5">
                                 <img src={`/storage/${concretPage?.solution_image_01}`} className="max-w-full h-auto" alt="Solucion concreto 01" />
@@ -106,93 +106,77 @@ const ConcretoPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="bg-[#11312C] rounded-t-[300px]">
-                <div className="container py-32 mx-auto">
+            <section className="bg-[#11312C] rounded-t-[80px] md:rounded-t-[300px]">
+                <div className="container py-16 md:py-32 mx-auto px-4">
                     <div className="relative">
                         <div className="absolute top-0 left-0 w-full">
-                            <h2 className="lg:text-6xl md:text-5xl sm:text-4xl text-3xl font-integralcfheavy text-white px-28"
+                            <h2 className="text-2xl md:text-6xl font-integralcfheavy text-white px-4 md:px-28"
                                 dangerouslySetInnerHTML={{ __html: concretPage?.section_title_03 }}
                             ></h2>
                         </div>
-                        <img src={`/storage/${concretPage?.section_image_03}`} className="max-w-full mx-auto block" alt="Seccion 3 Concreto" />
+                        <img src={`/storage/${concretPage?.section_image_03}`} className="w-full max-w-full mx-auto block mt-16 md:mt-0" alt="Seccion 3 Concreto" />
                     </div>
                 </div>
             </section>
-            <section className="mt-[-100px]">
-                <div className="container-custom">
-                    <div className="grid grid-cols-12 items-center">
-                        <div className="md:col-span-7 col-span-12 relative">
-                            <img src={`/storage/${concretPage?.section_image_04}`} className="max-w-full mx-auto block" alt="" />
+            <section className="mt-[-40px] md:mt-[-100px]">
+                <div className="container-custom px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-12 items-center">
+                        <div className="md:col-span-7 col-span-1 relative">
+                            <img src={`/storage/${concretPage?.section_image_04}`} className="w-full max-w-full mx-auto block" alt="" />
                             <div className="absolute bottom-0 right-0">
-                                <h2 className="lg:text-5xl md:text-4xl text-3xl font-integralcfheavy text-[#2C9C47] lg:px-28 lg:pb-40 md:px-20 md:pb-20 px-28 pb-28"
+                                <h2 className="text-2xl md:text-5xl font-integralcfheavy text-[#2C9C47] px-4 md:px-28 pb-10 md:pb-40"
                                     dangerouslySetInnerHTML={{ __html: concretPage?.section_title_04 }}
                                 ></h2>
                             </div>
                         </div>
-                        <div className="md:col-span-5 col-span-12">
-                            <h2 className="text-[#11312C] lg:text-5xl md:text-4xl sm:text-5xl text-3xl font-milligrambold mb-4"
+                        <div className="md:col-span-5 col-span-1 mt-8 md:mt-0">
+                            <h2 className="text-[#11312C] text-2xl md:text-5xl font-milligrambold mb-4"
                                 dangerouslySetInnerHTML={{ __html: concretPage?.section_subtitle_04 }}
                             ></h2>
-                            <div
-                                dangerouslySetInnerHTML={{ __html: concretPage?.section_description_04 }}
-                            ></div>
+                            <div dangerouslySetInnerHTML={{ __html: concretPage?.section_description_04 }}></div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="mt-[-90px] bg-[url(/images/concreto/bg-concreto-2.png)] bg-cover bg-top">
-                <div className="container py-20 mx-auto">
-                    <h2 className="lg:text-6xl md:text-5xl text-4xl text-center font-integralcfheavy text-[#11312C] pt-28 pb-16">{concretPage?.section_title_05}</h2>
-                    <img src={`/storage/${concretPage?.section_image_05}`} className="max-w-full mx-auto block" alt="Camion Pavesa sección 5" />
+            <section className="mt-[-40px] md:mt-[-90px] bg-[url(/images/concreto/bg-concreto-2.png)] bg-cover bg-top">
+                <div className="container py-10 md:py-20 mx-auto px-4">
+                    <h2 className="text-2xl md:text-6xl text-center font-integralcfheavy text-[#11312C] pt-10 md:pt-28 pb-8 md:pb-16">{concretPage?.section_title_05}</h2>
+                    <img src={`/storage/${concretPage?.section_image_05}`} className="w-full max-w-full mx-auto block" alt="Camion Pavesa sección 5" />
                 </div>
-                <div className="container mx-auto pb-40">
-                    <div className="grid grid-cols-2">
+                <div className="container mx-auto pb-20 md:pb-40 px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <h2 className="text-[#11312C] lg:text-5xl md:text-4xl text-3xl font-integralcfheavy"
+                            <h2 className="text-[#11312C] text-2xl md:text-5xl font-integralcfheavy"
                                 dangerouslySetInnerHTML={{ __html: concretPage?.section_subtitle_05 }}
                             ></h2>
                         </div>
                         <div>
-                            <p className="text-[#11312C] text-xl" 
+                            <p className="text-[#11312C] text-base md:text-xl"
                                 dangerouslySetInnerHTML={{ __html: concretPage?.section_description_05 }}
                             ></p>
                         </div>
                     </div>
                 </div>
                 <div className="container mx-auto">
-                    <div className="grid grid-cols-3 gap-10 py-10 px-10 bg-[#E9E9E9] rounded-[100px] z-40 relative">
-                        <div className="col-span-3 mt-[-70px] text-center">
-                            <h2 className="text-[#2C9C47] px-5 py-2 text-5xl font-integralcfheavy bg-[#E9E9E9] rounded-xl inline-block">{concretPage?.section_title_06}</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-10 px-4 md:px-10 bg-[#E9E9E9] rounded-[40px] md:rounded-[100px] z-40 relative">
+                        <div className="col-span-1 md:col-span-3 mt-[-30px] md:mt-[-70px] text-center">
+                            <h2 className="text-[#2C9C47] px-2 md:px-5 py-2 text-2xl md:text-5xl font-integralcfheavy bg-[#E9E9E9] rounded-xl inline-block">{concretPage?.section_title_06}</h2>
                         </div>
-                        <div className="p-5 rounded-3xl bg-white relative">
-                            <p className="font-integralcfheavy text-[#2C9C47] absolute top-[-30px] left-[10px] text-5xl">1</p>
-                            <p className="text-[#11312C] text-xl">{concretPage?.advantage_01}</p>
-                        </div>
-                        <div className="p-5 rounded-3xl bg-white relative">
-                            <p className="font-integralcfheavy text-[#2C9C47] absolute top-[-30px] left-[10px] text-5xl">2</p>
-                            <p className="text-[#11312C] text-xl">{concretPage?.advantage_02}</p>
-                        </div>
-                        <div className="p-5 rounded-3xl bg-white relative">
-                            <p className="font-integralcfheavy text-[#2C9C47] absolute top-[-30px] left-[10px] text-5xl">3</p>
-                            <p className="text-[#11312C] text-xl">{concretPage?.advantage_03}</p>
-                        </div>
-                        <div className="p-5 rounded-3xl bg-white relative">
-                            <p className="font-integralcfheavy text-[#2C9C47] absolute top-[-30px] left-[10px] text-5xl">4</p>
-                            <p className="text-[#11312C] text-xl">{concretPage?.advantage_04}</p>
-                        </div>
-                        <div className="p-5 rounded-3xl bg-white relative">
-                            <p className="font-integralcfheavy text-[#2C9C47] absolute top-[-30px] left-[10px] text-5xl">5</p>
-                            <p className="text-[#11312C] text-xl">{concretPage?.advantage_05}</p>
-                        </div>
+                        {[1,2,3,4,5].map(i => (
+                            <div key={i} className="p-5 rounded-3xl bg-white relative">
+                                <p className="font-integralcfheavy text-[#2C9C47] absolute top-[-20px] md:top-[-30px] left-[10px] text-2xl md:text-5xl">{i}</p>
+                                <p className="text-[#11312C] text-base md:text-xl">{concretPage?.[`advantage_0${i}`]}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
-                <div className="container-custom mx-auto mt-[-50px] z-0">
-                    <div className="grid grid-cols-2 items-center">
+                <div className="container-custom mx-auto mt-[-20px] md:mt-[-50px] z-0 px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
                         <div>
-                            <img src={`/storage/${concretPage?.section_image_06}`} className="max-w-full mx-auto block" alt="Tabla de precios" />
+                            <img src={`/storage/${concretPage?.section_image_06}`} className="w-full max-w-full mx-auto block" alt="Tabla de precios" />
                         </div>
-                        <div className="">
-                            <img src={`/storage/${concretPage?.section_image_07}`} className="max-w-full h-auto ml-auto" alt="Concreto pavesa Seccion 7" />
+                        <div>
+                            <img src={`/storage/${concretPage?.section_image_07}`} className="w-full h-auto ml-auto" alt="Concreto pavesa Seccion 7" />
                         </div>
                     </div>
                 </div>
