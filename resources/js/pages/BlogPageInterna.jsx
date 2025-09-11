@@ -108,7 +108,7 @@ const BlogInternaPage = () => {
                                         <img
                                             src={blog.image}
                                             alt={blog.title}
-                                            className="w-full h-40 object-cover rounded-md mb-4"
+                                            className="w-full object-cover rounded-md mb-4"
                                         />
                                     </a>
                                     <a href={"/blog/" + blog.slug}>
