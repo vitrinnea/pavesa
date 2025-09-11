@@ -68,7 +68,7 @@ const BlogInternaPage = () => {
                             <img
                                 src={article.image}
                                 alt={article.title}
-                                className="w-100 h-auto m-auto mb-5"
+                                className="w-full h-auto m-auto mb-5"
                             />
                         </div>
                         <p className="text-lg text-black mb-6">
