@@ -43,11 +43,11 @@ const AsfaltoPage = () => {
                     </div>
                 </section>
             )}
-            <section className="bg-[url(/images/asfalto/bg-asfalto.png)] bg-bottom bg-cover bg-no-repeat">
+            <section className="bg-[url(/images/asfalto/bg-asfalto.png)] bg-bottom bg-cover bg-no-repeat px-4">
                 <div className="container mx-auto">
-                    <div className="grid grid-cols-12 py-16 items-center justify-center">
+                    <div className="grid sm:grid-cols-12 py-16 items-center justify-center">
                         <div className="col-span-7">
-                            <img src={`/storage/${asfaltoPage?.section_image_01}`} className="max-w-xl h-auto mx-auto" alt="Asfalto Pavesa" />
+                            <img src={`/storage/${asfaltoPage?.section_image_01}`} className="w-full h-auto mx-auto" alt="Asfalto Pavesa" />
                         </div>
                         <div className="col-span-5 px-10" dangerouslySetInnerHTML={{ __html: asfaltoPage.section_title_01 }}></div>
                     </div>
@@ -55,9 +55,9 @@ const AsfaltoPage = () => {
             </section>
             <section>
                 <div className="container mx-auto pt-14">
-                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-5xl text-[#11312C]" 
+                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-2xl  sm:text-5xl text-[#11312C]"
                         dangerouslySetInnerHTML={{ __html: asfaltoPage.section_title_02 }}></h2>
-                    <div className="grid grid-cols-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-4">
                         <div className="px-5 pt-5 pb-16">
                             <div className="flex items-center justify-center h-[135px] mb-5">
                                 <img src={`/storage/${asfaltoPage?.solucion_image_01}`} className="max-w-xl h-auto mx-auto" alt="Asfalto Pavesa Solucion 1" />
@@ -107,9 +107,9 @@ const AsfaltoPage = () => {
             </section>
             <section>
                 <div className="container-custom mx-auto">
-                    <div className="grid grid-cols-2 py-24">
+                    <div className="grid sm:grid-cols-2 py-24 px-2">
                         <div className="xl:px-24">
-                            <h2 className="font-integralcfheavy text-5xl text-[#2C9C47] mb-10"
+                            <h2 className="font-integralcfheavy text-2xl sm:text-5xl text-[#2C9C47] mb-10"
                                 dangerouslySetInnerHTML={{ __html: asfaltoPage.section_title_03 }}>
                             </h2>
                             <div>
@@ -135,7 +135,7 @@ const AsfaltoPage = () => {
                                     <h2 className="text-[#11312C] text-2xl font-milligrambold"
                                         dangerouslySetInnerHTML={{ __html: asfaltoPage.capacidad_title_02 }}
                                     ></h2>
-                                    <div 
+                                    <div
                                         dangerouslySetInnerHTML={{ __html: asfaltoPage.capacidad_description_02 }}
                                     ></div>
                                 </div>
