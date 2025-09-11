@@ -122,15 +122,15 @@ const TerraceriaPage = () => {
             </section>
             <section className="pt-28">
                 <div className="container mx-auto bg-[url(/images/terraceria/bg-terraceria-2.png)] bg-cover bg-no-repeat">
-                    <div className="grid grid-cols-2">
+                    <div className="grid sm:grid-cols-2">
                         <div className="mt-[-50px]"
                             dangerouslySetInnerHTML={{ __html: terraceria?.section_title_03 }}
                         ></div>
-                        <div className="mt-[-70px]">
+                        <div className="sm:mt-[-70px]">
                             <img src={`/storage/${terraceria?.section_image_03}`} className="max-w-full mx-auto" alt="Alcance de servicios Pavesa" />
                         </div>
                     </div>
-                    <div className="grid grid-cols-3 py-24">
+                    <div className="grid sm:grid-cols-3 py-24">
                         <div className="px-5 pt-5 pb-16">
                             <div className="flex items-center justify-center h-[135px] mb-5">
                             <img src={`/storage/${terraceria?.alcance_image_01}`} className="max-w-full mx-auto" alt="" />
