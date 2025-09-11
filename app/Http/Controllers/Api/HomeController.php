@@ -25,6 +25,7 @@ class HomeController extends Controller
             ->get()
             ->map(function ($slider) {
                 $image = $slider->getFirstMediaUrl('slider');
+                $image_mobile = $slider->getFirstMediaUrl('slider_mobile');
                 return [
                     'id' => $slider->id,
                     'title' => $slider->title,
@@ -33,6 +34,7 @@ class HomeController extends Controller
                     'button_text' => $slider->button_text,
                     'button_url' => $slider->button_url,
                     'image' => $image,
+                    'image_mobile' => $image_mobile,
                     'order' => $slider->order,
                 ];
             });

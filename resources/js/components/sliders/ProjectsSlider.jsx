@@ -35,7 +35,7 @@ const ProjectsSlider = ({ proyectos }) => {
         <div className="proyectos-carousel">
             <div className="flex items-start relative">
                 {/* Botones a la izquierda - Ajustando z-index y posición */}
-                <div className="flex flex-col gap-2 mt-[60px] relative z-20 mr-8">
+                <div className="flex-col gap-2 mt-[60px] relative z-20 mr-8 hidden lg:flex">
                     <PrevButton
                         onClick={onPrevButtonClick}
                         disabled={prevBtnDisabled}

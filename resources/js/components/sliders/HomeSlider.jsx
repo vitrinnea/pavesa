@@ -29,7 +29,7 @@ const HomeSlider = ({ dataSlider }) => {
 
     const sliderData =
         typeof dataSlider === "string" ? JSON.parse(dataSlider) : dataSlider;
-
+        console.log(sliderData);
     return (
         <div className="embla h-screen relative" ref={emblaRef}>
             <div className="embla__container h-full">
@@ -40,11 +40,20 @@ const HomeSlider = ({ dataSlider }) => {
                             className="embla__slide relative w-full h-full"
                         >
                             <img
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover hidden lg:block"
                                 src={
                                     typeof item.image === "string"
                                         ? item.image
                                         : `/storage/${item.image}`
+                                }
+                                alt={item.title || "Slide imagen"}
+                            />
+                            <img
+                                className="w-full h-full object-cover lg:hidden"
+                                src={
+                                    typeof item.image_mobile === "string"
+                                        ? item.image_mobile
+                                        : `/storage/${item.image_mobile}`
                                 }
                                 alt={item.title || "Slide imagen"}
                             />

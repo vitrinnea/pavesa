@@ -37,18 +37,23 @@ class SliderResource extends Resource
                 Forms\Components\TextInput::make('button_text')
                     ->label('Texto del botón')
                     ->maxLength(50),
-                Forms\Components\TextInput::make('button_url')
-                    ->label('Enlace del botón')
-                    ->url()
-                    ->maxLength(255),
+
                 SpatieMediaLibraryFileUpload::make('image')
                     ->label('Imagen')
                     ->collection('slider')
+                    ->required(),
+                SpatieMediaLibraryFileUpload::make('image_mobile')
+                    ->label('Imagen Mobile')
+                    ->collection('slider_mobile')
                     ->required(),
                 Forms\Components\TextInput::make('order')
                     ->label('Orden')
                     ->integer()
                     ->default(0),
+                    Forms\Components\TextInput::make('button_url')
+                    ->label('Enlace del botón')
+                    ->url()
+                    ->maxLength(255),
                 Forms\Components\Toggle::make('is_active')
                     ->label('Activo')
                     ->default(true),

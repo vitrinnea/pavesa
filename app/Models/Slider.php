@@ -29,5 +29,8 @@ class Slider extends Model implements HasMedia
     {
         $this->addMediaCollection('slider')
             ->singleFile();
+
+        $this->addMediaCollection('slider_mobile')
+            ->singleFile();
     }
 }

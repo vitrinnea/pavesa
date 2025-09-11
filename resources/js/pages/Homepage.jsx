@@ -78,7 +78,7 @@ const Homepage = () => {
                                     }')`,
                                 }}
                             >
-                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#2C9C47] text-white p-2 sm:p-3 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition duration-300 font-milligrambold text-center">
+                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#2C9C47] text-white p-2 sm:p-3 text-xs sm:text-base opacity-0 group-hover:opacity-100 transition duration-300 font-milligrambold text-center">
                                     {homePage?.[`service_description_0${i}`]}
                                 </div>
                             </div>
@@ -130,8 +130,8 @@ const Homepage = () => {
                         </button>
                     </div>
                 </div>
-                <div className="container mx-auto pt-32">
-                    <h2 className="text-center font-bold text-5xl text-white font-integralcfheavy">
+                <div className="container mx-auto pt-7 lg:pt-32">
+                    <h2 className="text-center font-bold text-2xl sm:text-5xl text-white font-integralcfheavy">
                         COTIZA TU PROYECTO <br />
                         <span className="text-[#2C9C47] font-integralcfheavy">
                             AHORA
@@ -152,8 +152,8 @@ const Homepage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container mx-auto pt-40">
-                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-5xl text-white lg:text-[#11312C]">
+                <div className="container mx-auto pt-7 lg:pt-32">
+                    <h2 className="section-title text-center mb-12 font-integralcfheavy text-2xl sm:text-5xl text-white lg:text-[#11312C]">
                         {homePage?.solution_title_general}
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 px-2">
@@ -183,7 +183,7 @@ const Homepage = () => {
                                         }
                                         className="text-white py-2 px-4 d-flex"
                                     >
-                                        CONOCE MÁS 
+                                        CONOCE MÁS
                                         <svg width="14" height="10" className="ml-1 inline" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11.533 5.64143C11.4295 5.64143 11.3242 5.64143 11.2208 5.64143C7.19947 5.64143 4.97498 5.64143 0.953687 5.64317C0.837074 5.64317 0.72046 5.6484 0.603846 5.63621C0.24272 5.59965 -0.00555496 5.32803 8.76438e-05 4.98851C0.00573025 4.66292 0.255886 4.40523 0.607608 4.37215C0.722341 4.3617 0.840835 4.36518 0.957449 4.36518C4.96746 4.36518 7.18442 4.36692 11.1944 4.36518C11.3073 4.36518 11.4239 4.3913 11.6233 4.29902C11.2509 3.98039 10.8991 3.69137 10.5625 3.38493C9.74617 2.64146 8.93739 1.88929 8.12674 1.14061C7.83332 0.868992 7.81639 0.447638 8.08536 0.191692C8.35997 -0.0694778 8.81325 -0.0677367 9.133 0.221291C9.76497 0.792382 10.3857 1.37566 11.0101 1.95372C11.8904 2.76682 12.7706 3.57993 13.6471 4.39478C14.1211 4.83529 14.1173 5.17307 13.6377 5.61706C12.1819 6.96469 10.728 8.31407 9.27219 9.65996C9.18943 9.73657 9.10855 9.81666 9.01263 9.87586C8.7004 10.0726 8.28661 10.0308 8.05903 9.78358C7.81828 9.52415 7.84085 9.14111 8.1211 8.88168C9.19695 7.88227 10.2766 6.8846 11.3562 5.88867C11.4239 5.82599 11.5142 5.78595 11.5951 5.73371C11.5744 5.70063 11.5537 5.66929 11.533 5.63621V5.64143Z" fill="white"/>
                                         </svg>
@@ -193,8 +193,8 @@ const Homepage = () => {
                         ))}
                     </div>
                 </div>
-                <div className="container mx-auto pt-32 pb-32">
-                    <h2 className="section-title mb-12 font-integralcfheavy text-5xl text-[#11312C]">
+                <div className="container mx-auto pt-7 lg:pt-32">
+                    <h2 className="section-title mb-12 font-integralcfheavy text-2xl sm:text-5xl text-[#11312C]">
                         {homePage?.project_title_general}
                     </h2>
                     <ProjectsSlider proyectos={proyectosData} />
@@ -318,9 +318,9 @@ const Homepage = () => {
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 items-center gap-4">
                         {news && news.map((item, index) => {
                             return (
-                                <div 
+                                <div
                                     key={index}
-                                    className="col-span-1 rounded-lg bg-[rgb(17,49,44,0.09)] p-5 group">                           
+                                    className="col-span-1 rounded-lg bg-[rgb(17,49,44,0.09)] p-5 group">
                                     <div className="relative overflow-hidden h-[380px] mb-4">
                                         <img
                                             src={
@@ -350,7 +350,7 @@ const Homepage = () => {
                                         {item.title || "Noticia" + (index + 1)}
                                     </h2>
                                     <p className="text-[#11312C] font-milligramregular mb-4">{item.excerpt}</p>
-                                    <a href={"/blog/" + item.slug} className="text-[#11312C] font-milligrambold text-lg flex items-center">Más 
+                                    <a href={"/blog/" + item.slug} className="text-[#11312C] font-milligrambold text-lg flex items-center">Más
                                         <svg width="12" height="8" className="ml-2" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.88542 4.51315C9.79675 4.51315 9.70647 4.51315 9.6178 4.51315C6.17098 4.51315 4.26427 4.51315 0.817446 4.51454C0.717492 4.51454 0.617537 4.51872 0.517582 4.50897C0.208045 4.47972 -0.00476139 4.26242 7.51233e-05 3.99081C0.00491164 3.73033 0.219331 3.52418 0.520807 3.49772C0.619149 3.48936 0.720716 3.49215 0.820671 3.49215C4.25782 3.49215 6.15808 3.49354 9.59523 3.49215C9.69196 3.49215 9.79191 3.51304 9.9628 3.43922C9.64359 3.18431 9.34212 2.95309 9.05354 2.70794C8.35386 2.11317 7.66062 1.51144 6.96578 0.912487C6.71428 0.695193 6.69977 0.35811 6.93031 0.153353C7.16568 -0.0555822 7.55422 -0.0541894 7.82829 0.177033C8.36998 0.633906 8.902 1.10053 9.43724 1.56297C10.1917 2.21346 10.9462 2.86395 11.6975 3.51583C12.1038 3.86823 12.1005 4.13845 11.6894 4.49364C10.4416 5.57175 9.19541 6.65125 7.94759 7.72797C7.87665 7.78926 7.80733 7.85333 7.72511 7.90069C7.45749 8.05809 7.10281 8.02466 6.90774 7.82687C6.70138 7.61932 6.72073 7.31288 6.96094 7.10534C7.8831 6.30581 8.80849 5.50768 9.73388 4.71094C9.79191 4.66079 9.8693 4.62876 9.93862 4.58697C9.92089 4.5605 9.90315 4.53543 9.88542 4.50897V4.51315Z" fill="#2C9C47"/>
                                         </svg>
