@@ -55,7 +55,7 @@ export default function QuoteForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2 className="text-white max-w-md text-4xl px-2 py-1 font-milligramregular">
+            <h2 className="sm:text-white max-w-md text-2xl sm:text-4xl px-2 py-1 font-milligramregular">
                 <span className="bg-transparent">
                     Puedes cotizar tu proyecto
                 </span>

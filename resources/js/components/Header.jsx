@@ -242,7 +242,7 @@ const Header = ({ settings, menus }) => {
                                 Blog
                             </NavLink>
                             <NavLink
-                                to="/contacto"
+                                to="/contactenos"
                                 className={({ isActive }) =>
                                     `block py-2 px-4 rounded ${
                                         isActive
@@ -255,7 +255,7 @@ const Header = ({ settings, menus }) => {
                                 Contáctanos
                             </NavLink>
                             <Link
-                                to="/contacto"
+                                to="/contactenos"
                                 className="bg-primary text-white px-4 py-2 rounded-full font-medium text-center"
                                 onClick={() => setIsOpen(false)}
                             >
