@@ -118,18 +118,18 @@ const ConcretoPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="mt-[-100px]">
+            <section className="sm:mt-[-100px] px-5">
                 <div className="container-custom">
-                    <div className="grid grid-cols-12 items-center">
-                        <div className="md:col-span-7 col-span-12 relative">
+                    <div className="grid sm:grid-cols-12 items-center">
+                        <div className="md:col-span-7 sm:col-span-12 relative">
                             <img src={`/storage/${concretPage?.section_image_04}`} className="max-w-full mx-auto block" alt="" />
-                            <div className="absolute bottom-0 right-0">
-                                <h2 className="lg:text-5xl md:text-4xl text-2xl font-integralcfheavy text-[#2C9C47] lg:px-28 lg:pb-40 md:px-20 md:pb-20 px-28 pb-28"
+                            <div className="sm:absolute bottom-0 right-0">
+                                <h2 className="lg:text-5xl md:text-4xl text-2xl font-integralcfheavy text-[#2C9C47] lg:px-28 lg:pb-40 md:px-20 md:pb-20 px-28 pb-10"
                                     dangerouslySetInnerHTML={{ __html: concretPage?.section_title_04 }}
                                 ></h2>
                             </div>
                         </div>
-                        <div className="md:col-span-5 col-span-12">
+                        <div className="md:col-span-5 sm:col-span-12">
                             <h2 className="text-[#11312C] lg:text-5xl md:text-4xl sm:text-5xl text-3xl font-milligrambold mb-4"
                                 dangerouslySetInnerHTML={{ __html: concretPage?.section_subtitle_04 }}
                             ></h2>
@@ -140,15 +140,15 @@ const ConcretoPage = () => {
                     </div>
                 </div>
             </section>
-            <section className="mt-[-90px] bg-[url(/images/concreto/bg-concreto-2.png)] bg-cover bg-top">
+            <section className="lg:mt-[-90px] bg-[url(/images/concreto/bg-concreto-2.png)] bg-cover bg-top">
                 <div className="container py-20 mx-auto">
-                    <h2 className="lg:text-6xl md:text-5xl text-4xl text-center font-integralcfheavy text-[#11312C] pt-28 pb-16">{concretPage?.section_title_05}</h2>
+                    <h2 className="lg:text-6xl md:text-5xl text-4xl text-center font-integralcfheavy text-[#11312C] sm:pt-28 pb-16">{concretPage?.section_title_05}</h2>
                     <img src={`/storage/${concretPage?.section_image_05}`} className="max-w-full mx-auto block" alt="Camion Pavesa sección 5" />
                 </div>
-                <div className="container mx-auto pb-40">
-                    <div className="grid grid-cols-2">
+                <div className="container mx-auto pb-40 px-5">
+                    <div className="grid sm:grid-cols-2">
                         <div>
-                            <h2 className="text-[#11312C] lg:text-5xl md:text-4xl text-3xl font-integralcfheavy"
+                            <h2 className="text-[#11312C] lg:text-5xl md:text-4xl text-2xl font-integralcfheavy"
                                 dangerouslySetInnerHTML={{ __html: concretPage?.section_subtitle_05 }}
                             ></h2>
                         </div>
@@ -160,8 +160,8 @@ const ConcretoPage = () => {
                     </div>
                 </div>
                 <div className="container mx-auto">
-                    <div className="grid grid-cols-3 gap-10 py-10 px-10 bg-[#E9E9E9] rounded-[100px] z-40 relative max-w-full">
-                        <div className="col-span-3 mt-[-50px] text-center">
+                    <div className="grid  sm:grid-cols-3 gap-10 py-10 px-10 bg-[#E9E9E9] rounded-[100px] z-40 relative max-w-full">
+                        <div className="sm:col-span-3 mt-[-50px] text-center">
                             <h2 className="text-[#2C9C47] px-5 py-2 text-2xl sm:text-5xl font-integralcfheavy bg-[#E9E9E9] rounded-xl inline-block">{concretPage?.section_title_06}</h2>
                         </div>
                         <div className="p-5 rounded-3xl bg-white relative">
@@ -186,7 +186,7 @@ const ConcretoPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container-custom mx-auto mt-[-50px] z-0">
+                <div className="container-custom mx-auto sm:mt-[-50px] z-0">
                     <div className="grid grid-cols-2 items-center">
                         <div>
                             <img src={`/storage/${concretPage?.section_image_06}`} className="max-w-full mx-auto block" alt="Tabla de precios" />
