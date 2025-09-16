@@ -156,7 +156,7 @@ const Homepage = () => {
                     <h2 className="section-title text-center mb-12 font-integralcfheavy text-2xl sm:text-5xl text-white lg:text-[#11312C]">
                         {homePage?.solution_title_general}
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 px-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 px-2">
                         {[1, 2, 3, 4].map((i) => (
                             <div
                                 key={i}
